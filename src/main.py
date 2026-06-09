@@ -1,3 +1,4 @@
+import argparse
 import json
 import os
 import sys
@@ -12,7 +13,7 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 
 from groups import GROUPS, GROUP_MATCHES
-from odds_fetcher import fetch_odds
+from odds_fetcher import fetch_odds, load_cached_odds, load_schedule
 from results_fetcher import fetch_results
 from simulator import simulate_group
 
@@ -77,6 +78,8 @@ def write_json(all_group_probs, match_odds, match_results):
     out_path = Path(__file__).parent.parent / 'docs' / 'data' / 'group_rankings.json'
     os.makedirs(out_path.parent, exist_ok=True)
 
+    schedule = load_schedule()  # {(home, away): commence_time_iso}
+
     groups_data = {}
     for group_name in sorted(all_group_probs.keys()):
         teams = GROUPS[group_name]
@@ -89,16 +92,28 @@ def write_json(all_group_probs, match_odds, match_results):
         ]
 
         matches_list = []
-        for home, away in matches:
+        for team_a, team_b in matches:
+            # Use API's home/away ordering from schedule; fall back to combinations order
+            if (team_a, team_b) in schedule:
+                home, away, date = team_a, team_b, schedule[(team_a, team_b)]
+            elif (team_b, team_a) in schedule:
+                home, away, date = team_b, team_a, schedule[(team_b, team_a)]
+            else:
+                home, away, date = team_a, team_b, None
+
             ph, pd, pa = resolve_probs(home, away, match_odds)
             matches_list.append({
                 'home': home,
                 'away': away,
+                'date': date,
                 'p_home': round(ph, 4),
                 'p_draw': round(pd, 4),
                 'p_away': round(pa, 4),
                 'result': _get_result(home, away, match_results),
             })
+
+        # Chronological order; matches with no date go last
+        matches_list.sort(key=lambda m: m['date'] or 'z')
 
         groups_data[group_name] = {'teams': teams_list, 'matches': matches_list}
 
@@ -114,13 +129,33 @@ def write_json(all_group_probs, match_odds, match_results):
 
 
 def main():
-    print("Fetching odds from The Odds API...")
-    try:
-        match_odds = fetch_odds()
-        print(f"  Got odds for {len(match_odds)} matches.")
-    except Exception as exc:
-        print(f"  Warning: could not fetch odds ({exc}). Using 1/3 fallback for all matches.")
-        match_odds = {}
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--cached', action='store_true',
+                        help='Use locally cached odds instead of calling the API')
+    args = parser.parse_args()
+
+    if args.cached:
+        print("Loading cached odds...")
+        match_odds, fetched_at = load_cached_odds()
+        if match_odds is None:
+            print("  No cache found — fetching from API instead.")
+            args.cached = False
+        else:
+            print(f"  Loaded {len(match_odds)} matches from odds_cache.json (fetched {fetched_at}).")
+
+    if not args.cached:
+        print("Fetching odds from The Odds API...")
+        try:
+            match_odds = fetch_odds()
+            print(f"  Got odds for {len(match_odds)} matches. Saved to odds_cache.json.")
+        except Exception as exc:
+            print(f"  Warning: could not fetch odds ({exc}). Trying cache...")
+            match_odds, fetched_at = load_cached_odds()
+            if match_odds:
+                print(f"  Fell back to cached odds from {fetched_at}.")
+            else:
+                print("  No cache available. Using 1/3 fallback for all matches.")
+                match_odds = {}
 
     print("Fetching completed match results...")
     match_results = fetch_results()

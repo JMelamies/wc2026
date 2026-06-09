@@ -102,23 +102,55 @@ tr:not(:last-child) td { border-bottom: 1px solid #f4f4f4; }
 }
 
 .matches li {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0 6px;
   padding: 3px 0;
-  gap: 8px;
+  align-items: start;
 }
 
-.match-teams { flex-shrink: 0; }
+.match-date {
+  color: #bbb;
+  font-size: 0.68rem;
+  white-space: nowrap;
+  padding-top: 1px;
+}
+
+.match-teams {
+  word-break: break-word;
+}
 
 .match-odds {
   color: #aaa;
   white-space: nowrap;
   font-size: 0.72rem;
+  text-align: right;
+  padding-top: 1px;
 }
 
 .match-ft {
   color: #2a7a2a;
   font-weight: 500;
   white-space: nowrap;
+  text-align: right;
+  padding-top: 1px;
+}
+
+.toggle-btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 18px;
+  font-size: 0.82rem;
+  font-family: inherit;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  cursor: pointer;
+  color: #444;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.toggle-btn:hover {
+  background: #f0f2f5;
+  border-color: #aaa;
 }

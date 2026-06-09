@@ -1,92 +1,98 @@
 {
-  "generated": "2026-06-09T14:19:58",
+  "generated": "2026-06-09T16:40:59",
   "groups": {
     "A": {
       "teams": [
         {
           "name": "Mexico",
           "probs": [
-            0.5344,
-            0.2627,
-            0.1416,
-            0.0612
+            0.5328,
+            0.2629,
+            0.1423,
+            0.0621
           ]
         },
         {
           "name": "Czechia",
           "probs": [
-            0.1999,
-            0.2835,
-            0.2899,
-            0.2267
+            0.2003,
+            0.2832,
+            0.2896,
+            0.227
           ]
         },
         {
           "name": "South Korea",
           "probs": [
-            0.1933,
-            0.2869,
-            0.2884,
-            0.2314
+            0.1936,
+            0.2865,
+            0.2882,
+            0.2317
           ]
         },
         {
           "name": "South Africa",
           "probs": [
-            0.0723,
-            0.1669,
-            0.28,
-            0.4807
+            0.0734,
+            0.1675,
+            0.2799,
+            0.4793
           ]
         }
       ],
       "matches": [
         {
           "home": "Mexico",
-          "away": "South Korea",
-          "p_home": 0.5293,
-          "p_draw": 0.2722,
-          "p_away": 0.1985,
-          "result": null
-        },
-        {
-          "home": "Mexico",
           "away": "South Africa",
-          "p_home": 0.6827,
-          "p_draw": 0.2131,
-          "p_away": 0.1042,
-          "result": null
-        },
-        {
-          "home": "Mexico",
-          "away": "Czechia",
-          "p_home": 0.5062,
-          "p_draw": 0.2667,
-          "p_away": 0.2271,
-          "result": null
-        },
-        {
-          "home": "South Korea",
-          "away": "South Africa",
-          "p_home": 0.4682,
-          "p_draw": 0.2763,
-          "p_away": 0.2554,
+          "date": "2026-06-11T19:00:00Z",
+          "p_home": 0.678,
+          "p_draw": 0.2155,
+          "p_away": 0.1065,
           "result": null
         },
         {
           "home": "South Korea",
           "away": "Czechia",
+          "date": "2026-06-12T02:00:00Z",
           "p_home": 0.3628,
           "p_draw": 0.3066,
           "p_away": 0.3306,
           "result": null
         },
         {
-          "home": "South Africa",
-          "away": "Czechia",
-          "p_home": 0.233,
+          "home": "Czechia",
+          "away": "South Africa",
+          "date": "2026-06-18T16:00:00Z",
+          "p_home": 0.4776,
           "p_draw": 0.2894,
-          "p_away": 0.4776,
+          "p_away": 0.233,
+          "result": null
+        },
+        {
+          "home": "Mexico",
+          "away": "South Korea",
+          "date": "2026-06-19T01:00:00Z",
+          "p_home": 0.5293,
+          "p_draw": 0.2722,
+          "p_away": 0.1985,
+          "result": null
+        },
+        {
+          "home": "Czechia",
+          "away": "Mexico",
+          "date": "2026-06-25T01:00:00Z",
+          "p_home": 0.2271,
+          "p_draw": 0.2667,
+          "p_away": 0.5062,
+          "result": null
+        },
+        {
+          "home": "South Africa",
+          "away": "South Korea",
+          "date": "2026-06-25T01:00:00Z",
+          "p_home": 0.2554,
+          "p_draw": 0.2763,
+          "p_away": 0.4682,
           "result": null
         }
       ]
@@ -96,8 +102,8 @@
         {
           "name": "Switzerland",
           "probs": [
-            0.5272,
-            0.3025,
+            0.5276,
+            0.3022,
             0.136,
             0.0343
           ]
@@ -105,19 +111,19 @@
         {
           "name": "Canada",
           "probs": [
-            0.3328,
-            0.3794,
-            0.2145,
-            0.0734
+            0.3321,
+            0.3792,
+            0.2152,
+            0.0736
           ]
         },
         {
           "name": "Bosnia-Herzegovina",
           "probs": [
-            0.12,
-            0.2458,
-            0.4325,
-            0.2017
+            0.1204,
+            0.2464,
+            0.432,
+            0.2013
           ]
         },
         {
@@ -125,58 +131,64 @@
           "probs": [
             0.02,
             0.0723,
-            0.2171,
-            0.6907
+            0.2169,
+            0.6908
           ]
         }
       ],
       "matches": [
         {
           "home": "Canada",
-          "away": "Switzerland",
-          "p_home": 0.2631,
-          "p_draw": 0.2877,
-          "p_away": 0.4492,
-          "result": null
-        },
-        {
-          "home": "Canada",
-          "away": "Qatar",
-          "p_home": 0.7116,
-          "p_draw": 0.183,
-          "p_away": 0.1055,
-          "result": null
-        },
-        {
-          "home": "Canada",
           "away": "Bosnia-Herzegovina",
-          "p_home": 0.552,
-          "p_draw": 0.2509,
+          "date": "2026-06-12T19:00:00Z",
+          "p_home": 0.5487,
+          "p_draw": 0.2542,
           "p_away": 0.1971,
           "result": null
         },
         {
-          "home": "Switzerland",
-          "away": "Qatar",
-          "p_home": 0.7866,
+          "home": "Qatar",
+          "away": "Switzerland",
+          "date": "2026-06-13T19:00:00Z",
+          "p_home": 0.0645,
           "p_draw": 0.1489,
-          "p_away": 0.0645,
+          "p_away": 0.7866,
           "result": null
         },
         {
           "home": "Switzerland",
           "away": "Bosnia-Herzegovina",
+          "date": "2026-06-18T19:00:00Z",
           "p_home": 0.6024,
           "p_draw": 0.2425,
           "p_away": 0.1551,
           "result": null
         },
         {
-          "home": "Qatar",
-          "away": "Bosnia-Herzegovina",
-          "p_home": 0.1496,
+          "home": "Canada",
+          "away": "Qatar",
+          "date": "2026-06-18T22:00:00Z",
+          "p_home": 0.7116,
+          "p_draw": 0.183,
+          "p_away": 0.1055,
+          "result": null
+        },
+        {
+          "home": "Switzerland",
+          "away": "Canada",
+          "date": "2026-06-24T19:00:00Z",
+          "p_home": 0.4492,
+          "p_draw": 0.2877,
+          "p_away": 0.2631,
+          "result": null
+        },
+        {
+          "home": "Bosnia-Herzegovina",
+          "away": "Qatar",
+          "date": "2026-06-24T19:00:00Z",
+          "p_home": 0.6185,
           "p_draw": 0.2319,
-          "p_away": 0.6185,
+          "p_away": 0.1496,
           "result": null
         }
       ]
@@ -186,37 +198,37 @@
         {
           "name": "Brazil",
           "probs": [
-            0.6618,
-            0.2385,
-            0.0875,
-            0.0122
+            0.6611,
+            0.239,
+            0.0876,
+            0.0123
           ]
         },
         {
           "name": "Morocco",
           "probs": [
-            0.2108,
+            0.2117,
             0.4165,
-            0.2818,
+            0.2809,
             0.0909
           ]
         },
         {
           "name": "Scotland",
           "probs": [
-            0.1172,
-            0.2811,
-            0.4189,
-            0.1828
+            0.1168,
+            0.2798,
+            0.4176,
+            0.1857
           ]
         },
         {
           "name": "Haiti",
           "probs": [
-            0.0102,
-            0.0639,
-            0.2119,
-            0.7141
+            0.0104,
+            0.0646,
+            0.2139,
+            0.7111
           ]
         }
       ],
@@ -224,49 +236,55 @@
         {
           "home": "Brazil",
           "away": "Morocco",
-          "p_home": 0.5766,
-          "p_draw": 0.2549,
-          "p_away": 0.1685,
+          "date": "2026-06-13T22:00:00Z",
+          "p_home": 0.5736,
+          "p_draw": 0.2578,
+          "p_away": 0.1686,
+          "result": null
+        },
+        {
+          "home": "Haiti",
+          "away": "Scotland",
+          "date": "2026-06-14T01:00:00Z",
+          "p_home": 0.1588,
+          "p_draw": 0.2202,
+          "p_away": 0.621,
+          "result": null
+        },
+        {
+          "home": "Scotland",
+          "away": "Morocco",
+          "date": "2026-06-19T22:00:00Z",
+          "p_home": 0.2451,
+          "p_draw": 0.284,
+          "p_away": 0.4709,
           "result": null
         },
         {
           "home": "Brazil",
           "away": "Haiti",
+          "date": "2026-06-20T01:00:00Z",
           "p_home": 0.8994,
           "p_draw": 0.0733,
           "p_away": 0.0272,
           "result": null
         },
         {
-          "home": "Brazil",
-          "away": "Scotland",
-          "p_home": 0.6529,
+          "home": "Scotland",
+          "away": "Brazil",
+          "date": "2026-06-24T22:00:00Z",
+          "p_home": 0.1457,
           "p_draw": 0.2014,
-          "p_away": 0.1457,
+          "p_away": 0.6529,
           "result": null
         },
         {
           "home": "Morocco",
           "away": "Haiti",
+          "date": "2026-06-24T22:00:00Z",
           "p_home": 0.7066,
           "p_draw": 0.1914,
           "p_away": 0.1021,
-          "result": null
-        },
-        {
-          "home": "Morocco",
-          "away": "Scotland",
-          "p_home": 0.4709,
-          "p_draw": 0.284,
-          "p_away": 0.2451,
-          "result": null
-        },
-        {
-          "home": "Haiti",
-          "away": "Scotland",
-          "p_home": 0.155,
-          "p_draw": 0.2201,
-          "p_away": 0.6249,
           "result": null
         }
       ]
@@ -276,37 +294,37 @@
         {
           "name": "United States",
           "probs": [
-            0.3741,
-            0.2865,
-            0.2072,
-            0.1322
+            0.3729,
+            0.2861,
+            0.2076,
+            0.1334
           ]
         },
         {
           "name": "Türkiye",
           "probs": [
-            0.3398,
-            0.2906,
-            0.2237,
-            0.1459
+            0.3399,
+            0.2905,
+            0.2236,
+            0.146
           ]
         },
         {
           "name": "Paraguay",
           "probs": [
-            0.1826,
-            0.2464,
-            0.2933,
-            0.2777
+            0.1827,
+            0.2463,
+            0.2931,
+            0.2779
           ]
         },
         {
           "name": "Australia",
           "probs": [
-            0.1035,
-            0.1765,
-            0.2758,
-            0.4442
+            0.1045,
+            0.1771,
+            0.2757,
+            0.4427
           ]
         }
       ],
@@ -314,49 +332,55 @@
         {
           "home": "United States",
           "away": "Paraguay",
+          "date": "2026-06-13T01:00:00Z",
           "p_home": 0.483,
           "p_draw": 0.2774,
           "p_away": 0.2397,
           "result": null
         },
         {
-          "home": "United States",
-          "away": "Australia",
-          "p_home": 0.5497,
-          "p_draw": 0.2433,
-          "p_away": 0.207,
-          "result": null
-        },
-        {
-          "home": "United States",
-          "away": "Türkiye",
-          "p_home": 0.3755,
-          "p_draw": 0.2725,
-          "p_away": 0.352,
-          "result": null
-        },
-        {
-          "home": "Paraguay",
-          "away": "Australia",
-          "p_home": 0.4346,
-          "p_draw": 0.285,
-          "p_away": 0.2804,
-          "result": null
-        },
-        {
-          "home": "Paraguay",
-          "away": "Türkiye",
-          "p_home": 0.2765,
-          "p_draw": 0.2933,
-          "p_away": 0.4302,
-          "result": null
-        },
-        {
           "home": "Australia",
           "away": "Türkiye",
+          "date": "2026-06-14T04:00:00Z",
           "p_home": 0.194,
           "p_draw": 0.2519,
           "p_away": 0.5542,
+          "result": null
+        },
+        {
+          "home": "United States",
+          "away": "Australia",
+          "date": "2026-06-19T19:00:00Z",
+          "p_home": 0.5473,
+          "p_draw": 0.2422,
+          "p_away": 0.2106,
+          "result": null
+        },
+        {
+          "home": "Türkiye",
+          "away": "Paraguay",
+          "date": "2026-06-20T03:00:00Z",
+          "p_home": 0.4302,
+          "p_draw": 0.2933,
+          "p_away": 0.2765,
+          "result": null
+        },
+        {
+          "home": "Türkiye",
+          "away": "United States",
+          "date": "2026-06-26T02:00:00Z",
+          "p_home": 0.352,
+          "p_draw": 0.2725,
+          "p_away": 0.3755,
+          "result": null
+        },
+        {
+          "home": "Paraguay",
+          "away": "Australia",
+          "date": "2026-06-26T02:00:00Z",
+          "p_home": 0.4346,
+          "p_draw": 0.285,
+          "p_away": 0.2804,
           "result": null
         }
       ]
@@ -366,37 +390,37 @@
         {
           "name": "Germany",
           "probs": [
-            0.6167,
-            0.2606,
-            0.1128,
-            0.0099
+            0.6122,
+            0.2631,
+            0.1147,
+            0.01
           ]
         },
         {
           "name": "Ecuador",
           "probs": [
-            0.2263,
-            0.3838,
-            0.3127,
-            0.0772
+            0.2305,
+            0.3824,
+            0.3104,
+            0.0767
           ]
         },
         {
           "name": "Ivory Coast",
           "probs": [
-            0.1514,
-            0.3172,
-            0.4162,
+            0.1517,
+            0.3163,
+            0.4167,
             0.1152
           ]
         },
         {
           "name": "Curaçao",
           "probs": [
-            0.0055,
-            0.0384,
-            0.1584,
-            0.7977
+            0.0056,
+            0.0382,
+            0.1582,
+            0.798
           ]
         }
       ],
@@ -404,49 +428,55 @@
         {
           "home": "Germany",
           "away": "Curaçao",
+          "date": "2026-06-14T17:00:00Z",
           "p_home": 0.9244,
           "p_draw": 0.0588,
           "p_away": 0.0167,
           "result": null
         },
         {
+          "home": "Ivory Coast",
+          "away": "Ecuador",
+          "date": "2026-06-14T23:00:00Z",
+          "p_home": 0.2654,
+          "p_draw": 0.3423,
+          "p_away": 0.3922,
+          "result": null
+        },
+        {
           "home": "Germany",
           "away": "Ivory Coast",
+          "date": "2026-06-20T20:00:00Z",
           "p_home": 0.6047,
           "p_draw": 0.2316,
           "p_away": 0.1637,
           "result": null
         },
         {
-          "home": "Germany",
-          "away": "Ecuador",
-          "p_home": 0.5469,
-          "p_draw": 0.2477,
-          "p_away": 0.2054,
+          "home": "Ecuador",
+          "away": "Curaçao",
+          "date": "2026-06-21T00:00:00Z",
+          "p_home": 0.7725,
+          "p_draw": 0.1379,
+          "p_away": 0.0896,
+          "result": null
+        },
+        {
+          "home": "Ecuador",
+          "away": "Germany",
+          "date": "2026-06-25T20:00:00Z",
+          "p_home": 0.2102,
+          "p_draw": 0.2509,
+          "p_away": 0.5389,
           "result": null
         },
         {
           "home": "Curaçao",
           "away": "Ivory Coast",
+          "date": "2026-06-25T20:00:00Z",
           "p_home": 0.1053,
           "p_draw": 0.1685,
           "p_away": 0.7262,
-          "result": null
-        },
-        {
-          "home": "Curaçao",
-          "away": "Ecuador",
-          "p_home": 0.0896,
-          "p_draw": 0.1379,
-          "p_away": 0.7725,
-          "result": null
-        },
-        {
-          "home": "Ivory Coast",
-          "away": "Ecuador",
-          "p_home": 0.2651,
-          "p_draw": 0.3431,
-          "p_away": 0.3918,
           "result": null
         }
       ]
@@ -494,49 +524,55 @@
         {
           "home": "Netherlands",
           "away": "Japan",
+          "date": "2026-06-14T20:00:00Z",
           "p_home": 0.4823,
           "p_draw": 0.2678,
           "p_away": 0.2499,
           "result": null
         },
         {
+          "home": "Sweden",
+          "away": "Tunisia",
+          "date": "2026-06-15T02:00:00Z",
+          "p_home": 0.502,
+          "p_draw": 0.2753,
+          "p_away": 0.2227,
+          "result": null
+        },
+        {
           "home": "Netherlands",
           "away": "Sweden",
+          "date": "2026-06-20T17:00:00Z",
           "p_home": 0.5784,
           "p_draw": 0.2416,
           "p_away": 0.1801,
           "result": null
         },
         {
-          "home": "Netherlands",
-          "away": "Tunisia",
-          "p_home": 0.6047,
+          "home": "Tunisia",
+          "away": "Japan",
+          "date": "2026-06-21T04:00:00Z",
+          "p_home": 0.187,
+          "p_draw": 0.2649,
+          "p_away": 0.5481,
+          "result": null
+        },
+        {
+          "home": "Tunisia",
+          "away": "Netherlands",
+          "date": "2026-06-25T23:00:00Z",
+          "p_home": 0.1681,
           "p_draw": 0.2272,
-          "p_away": 0.1681,
+          "p_away": 0.6047,
           "result": null
         },
         {
           "home": "Japan",
           "away": "Sweden",
+          "date": "2026-06-25T23:00:00Z",
           "p_home": 0.4481,
           "p_draw": 0.276,
           "p_away": 0.276,
-          "result": null
-        },
-        {
-          "home": "Japan",
-          "away": "Tunisia",
-          "p_home": 0.5481,
-          "p_draw": 0.2649,
-          "p_away": 0.187,
-          "result": null
-        },
-        {
-          "home": "Sweden",
-          "away": "Tunisia",
-          "p_home": 0.502,
-          "p_draw": 0.2753,
-          "p_away": 0.2227,
           "result": null
         }
       ]
@@ -546,37 +582,37 @@
         {
           "name": "Belgium",
           "probs": [
-            0.6451,
+            0.6452,
             0.2291,
-            0.0936,
+            0.0935,
             0.0322
           ]
         },
         {
           "name": "Egypt",
           "probs": [
-            0.1944,
-            0.3553,
-            0.2827,
-            0.1675
+            0.1945,
+            0.3554,
+            0.2826,
+            0.1676
           ]
         },
         {
           "name": "Iran",
           "probs": [
-            0.1142,
-            0.2757,
-            0.3508,
-            0.2592
+            0.1139,
+            0.2751,
+            0.3504,
+            0.2605
           ]
         },
         {
           "name": "New Zealand",
           "probs": [
-            0.0462,
-            0.1398,
-            0.2729,
-            0.5411
+            0.0464,
+            0.1404,
+            0.2735,
+            0.5397
           ]
         }
       ],
@@ -584,49 +620,55 @@
         {
           "home": "Belgium",
           "away": "Egypt",
+          "date": "2026-06-15T19:00:00Z",
           "p_home": 0.5736,
           "p_draw": 0.2486,
           "p_away": 0.1779,
           "result": null
         },
         {
+          "home": "Iran",
+          "away": "New Zealand",
+          "date": "2026-06-16T01:00:00Z",
+          "p_home": 0.5032,
+          "p_draw": 0.2792,
+          "p_away": 0.2176,
+          "result": null
+        },
+        {
           "home": "Belgium",
           "away": "Iran",
+          "date": "2026-06-21T19:00:00Z",
           "p_home": 0.6768,
           "p_draw": 0.202,
           "p_away": 0.1212,
           "result": null
         },
         {
-          "home": "Belgium",
-          "away": "New Zealand",
-          "p_home": 0.7338,
+          "home": "New Zealand",
+          "away": "Egypt",
+          "date": "2026-06-22T01:00:00Z",
+          "p_home": 0.1829,
+          "p_draw": 0.2642,
+          "p_away": 0.5529,
+          "result": null
+        },
+        {
+          "home": "New Zealand",
+          "away": "Belgium",
+          "date": "2026-06-27T03:00:00Z",
+          "p_home": 0.0952,
           "p_draw": 0.171,
-          "p_away": 0.0952,
+          "p_away": 0.7338,
           "result": null
         },
         {
           "home": "Egypt",
           "away": "Iran",
+          "date": "2026-06-27T03:00:00Z",
           "p_home": 0.4115,
           "p_draw": 0.318,
           "p_away": 0.2705,
-          "result": null
-        },
-        {
-          "home": "Egypt",
-          "away": "New Zealand",
-          "p_home": 0.5529,
-          "p_draw": 0.2642,
-          "p_away": 0.1829,
-          "result": null
-        },
-        {
-          "home": "Iran",
-          "away": "New Zealand",
-          "p_home": 0.5056,
-          "p_draw": 0.2783,
-          "p_away": 0.2161,
           "result": null
         }
       ]
@@ -674,49 +716,55 @@
         {
           "home": "Spain",
           "away": "Cape Verde",
+          "date": "2026-06-15T16:00:00Z",
           "p_home": 0.8756,
           "p_draw": 0.0884,
           "p_away": 0.036,
           "result": null
         },
         {
+          "home": "Saudi Arabia",
+          "away": "Uruguay",
+          "date": "2026-06-15T22:00:00Z",
+          "p_home": 0.114,
+          "p_draw": 0.213,
+          "p_away": 0.673,
+          "result": null
+        },
+        {
           "home": "Spain",
           "away": "Saudi Arabia",
+          "date": "2026-06-21T16:00:00Z",
           "p_home": 0.8791,
           "p_draw": 0.0879,
           "p_away": 0.033,
           "result": null
         },
         {
-          "home": "Spain",
-          "away": "Uruguay",
-          "p_home": 0.585,
+          "home": "Uruguay",
+          "away": "Cape Verde",
+          "date": "2026-06-21T22:00:00Z",
+          "p_home": 0.655,
+          "p_draw": 0.2183,
+          "p_away": 0.1266,
+          "result": null
+        },
+        {
+          "home": "Uruguay",
+          "away": "Spain",
+          "date": "2026-06-27T00:00:00Z",
+          "p_home": 0.1733,
           "p_draw": 0.2417,
-          "p_away": 0.1733,
+          "p_away": 0.585,
           "result": null
         },
         {
           "home": "Cape Verde",
           "away": "Saudi Arabia",
+          "date": "2026-06-27T00:00:00Z",
           "p_home": 0.367,
           "p_draw": 0.2867,
           "p_away": 0.3462,
-          "result": null
-        },
-        {
-          "home": "Cape Verde",
-          "away": "Uruguay",
-          "p_home": 0.1266,
-          "p_draw": 0.2183,
-          "p_away": 0.655,
-          "result": null
-        },
-        {
-          "home": "Saudi Arabia",
-          "away": "Uruguay",
-          "p_home": 0.114,
-          "p_draw": 0.213,
-          "p_away": 0.673,
           "result": null
         }
       ]
@@ -726,8 +774,8 @@
         {
           "name": "France",
           "probs": [
-            0.6072,
-            0.2681,
+            0.6073,
+            0.268,
             0.1056,
             0.0192
           ]
@@ -735,28 +783,28 @@
         {
           "name": "Norway",
           "probs": [
-            0.2582,
-            0.3958,
-            0.2804,
-            0.0656
+            0.2583,
+            0.3967,
+            0.2809,
+            0.0641
           ]
         },
         {
           "name": "Senegal",
           "probs": [
-            0.1241,
-            0.286,
-            0.4233,
-            0.1665
+            0.1242,
+            0.2859,
+            0.4235,
+            0.1664
           ]
         },
         {
           "name": "Iraq",
           "probs": [
-            0.0105,
-            0.0502,
-            0.1907,
-            0.7487
+            0.0102,
+            0.0494,
+            0.19,
+            0.7504
           ]
         }
       ],
@@ -764,49 +812,55 @@
         {
           "home": "France",
           "away": "Senegal",
+          "date": "2026-06-16T19:00:00Z",
           "p_home": 0.6505,
           "p_draw": 0.2203,
           "p_away": 0.1292,
           "result": null
         },
         {
+          "home": "Iraq",
+          "away": "Norway",
+          "date": "2026-06-16T22:00:00Z",
+          "p_home": 0.0607,
+          "p_draw": 0.1438,
+          "p_away": 0.7956,
+          "result": null
+        },
+        {
           "home": "France",
           "away": "Iraq",
+          "date": "2026-06-22T21:00:00Z",
           "p_home": 0.8426,
           "p_draw": 0.112,
           "p_away": 0.0453,
           "result": null
         },
         {
-          "home": "France",
-          "away": "Norway",
-          "p_home": 0.5286,
+          "home": "Norway",
+          "away": "Senegal",
+          "date": "2026-06-23T00:00:00Z",
+          "p_home": 0.4446,
+          "p_draw": 0.2757,
+          "p_away": 0.2797,
+          "result": null
+        },
+        {
+          "home": "Norway",
+          "away": "France",
+          "date": "2026-06-26T19:00:00Z",
+          "p_home": 0.2143,
           "p_draw": 0.2571,
-          "p_away": 0.2143,
+          "p_away": 0.5286,
           "result": null
         },
         {
           "home": "Senegal",
           "away": "Iraq",
+          "date": "2026-06-26T19:00:00Z",
           "p_home": 0.6347,
           "p_draw": 0.2253,
           "p_away": 0.1399,
-          "result": null
-        },
-        {
-          "home": "Senegal",
-          "away": "Norway",
-          "p_home": 0.2797,
-          "p_draw": 0.2757,
-          "p_away": 0.4446,
-          "result": null
-        },
-        {
-          "home": "Iraq",
-          "away": "Norway",
-          "p_home": 0.0648,
-          "p_draw": 0.1388,
-          "p_away": 0.7964,
           "result": null
         }
       ]
@@ -816,37 +870,37 @@
         {
           "name": "Argentina",
           "probs": [
-            0.6453,
-            0.2426,
-            0.0901,
-            0.022
+            0.6464,
+            0.2417,
+            0.0898,
+            0.0221
           ]
         },
         {
           "name": "Austria",
           "probs": [
-            0.2217,
-            0.3917,
-            0.2912,
-            0.0954
+            0.22,
+            0.3907,
+            0.2917,
+            0.0976
           ]
         },
         {
           "name": "Algeria",
           "probs": [
-            0.1149,
-            0.2946,
-            0.4062,
-            0.1843
+            0.1152,
+            0.2953,
+            0.4047,
+            0.1848
           ]
         },
         {
           "name": "Jordan",
           "probs": [
-            0.0181,
-            0.0711,
-            0.2125,
-            0.6983
+            0.0184,
+            0.0724,
+            0.2138,
+            0.6955
           ]
         }
       ],
@@ -854,49 +908,55 @@
         {
           "home": "Argentina",
           "away": "Algeria",
+          "date": "2026-06-17T01:00:00Z",
           "p_home": 0.6827,
           "p_draw": 0.2131,
           "p_away": 0.1042,
           "result": null
         },
         {
+          "home": "Austria",
+          "away": "Jordan",
+          "date": "2026-06-17T04:00:00Z",
+          "p_home": 0.7274,
+          "p_draw": 0.1759,
+          "p_away": 0.0967,
+          "result": null
+        },
+        {
           "home": "Argentina",
           "away": "Austria",
+          "date": "2026-06-22T17:00:00Z",
           "p_home": 0.5731,
           "p_draw": 0.2439,
           "p_away": 0.183,
           "result": null
         },
         {
-          "home": "Argentina",
-          "away": "Jordan",
-          "p_home": 0.786,
+          "home": "Jordan",
+          "away": "Algeria",
+          "date": "2026-06-23T03:00:00Z",
+          "p_home": 0.1507,
+          "p_draw": 0.227,
+          "p_away": 0.6223,
+          "result": null
+        },
+        {
+          "home": "Jordan",
+          "away": "Argentina",
+          "date": "2026-06-28T02:00:00Z",
+          "p_home": 0.0657,
           "p_draw": 0.1483,
-          "p_away": 0.0657,
+          "p_away": 0.786,
           "result": null
         },
         {
           "home": "Algeria",
           "away": "Austria",
+          "date": "2026-06-28T02:00:00Z",
           "p_home": 0.2837,
           "p_draw": 0.2936,
           "p_away": 0.4227,
-          "result": null
-        },
-        {
-          "home": "Algeria",
-          "away": "Jordan",
-          "p_home": 0.6223,
-          "p_draw": 0.227,
-          "p_away": 0.1507,
-          "result": null
-        },
-        {
-          "home": "Austria",
-          "away": "Jordan",
-          "p_home": 0.7385,
-          "p_draw": 0.1655,
-          "p_away": 0.096,
           "result": null
         }
       ]
@@ -906,37 +966,37 @@
         {
           "name": "Portugal",
           "probs": [
-            0.5615,
-            0.306,
-            0.1016,
-            0.0309
+            0.5629,
+            0.3036,
+            0.1022,
+            0.0314
           ]
         },
         {
           "name": "Colombia",
           "probs": [
-            0.3505,
-            0.417,
-            0.1705,
-            0.062
+            0.3479,
+            0.4182,
+            0.1715,
+            0.0624
           ]
         },
         {
           "name": "DR Congo",
           "probs": [
-            0.0469,
-            0.1506,
-            0.391,
-            0.4115
+            0.048,
+            0.1517,
+            0.3901,
+            0.4101
           ]
         },
         {
           "name": "Uzbekistan",
           "probs": [
-            0.0411,
-            0.1264,
-            0.3368,
-            0.4956
+            0.0412,
+            0.1265,
+            0.3363,
+            0.4961
           ]
         }
       ],
@@ -944,49 +1004,55 @@
         {
           "home": "Portugal",
           "away": "DR Congo",
-          "p_home": 0.7534,
-          "p_draw": 0.1663,
-          "p_away": 0.0804,
+          "date": "2026-06-17T17:00:00Z",
+          "p_home": 0.7493,
+          "p_draw": 0.1667,
+          "p_away": 0.0841,
+          "result": null
+        },
+        {
+          "home": "Uzbekistan",
+          "away": "Colombia",
+          "date": "2026-06-18T02:00:00Z",
+          "p_home": 0.1089,
+          "p_draw": 0.2131,
+          "p_away": 0.678,
           "result": null
         },
         {
           "home": "Portugal",
           "away": "Uzbekistan",
+          "date": "2026-06-23T17:00:00Z",
           "p_home": 0.7361,
           "p_draw": 0.1591,
           "p_away": 0.1048,
           "result": null
         },
         {
-          "home": "Portugal",
-          "away": "Colombia",
-          "p_home": 0.4442,
-          "p_draw": 0.288,
-          "p_away": 0.2678,
+          "home": "Colombia",
+          "away": "DR Congo",
+          "date": "2026-06-24T02:00:00Z",
+          "p_home": 0.6371,
+          "p_draw": 0.2346,
+          "p_away": 0.1283,
+          "result": null
+        },
+        {
+          "home": "Colombia",
+          "away": "Portugal",
+          "date": "2026-06-27T23:30:00Z",
+          "p_home": 0.2639,
+          "p_draw": 0.2879,
+          "p_away": 0.4482,
           "result": null
         },
         {
           "home": "DR Congo",
           "away": "Uzbekistan",
+          "date": "2026-06-27T23:30:00Z",
           "p_home": 0.4063,
           "p_draw": 0.2818,
           "p_away": 0.312,
-          "result": null
-        },
-        {
-          "home": "DR Congo",
-          "away": "Colombia",
-          "p_home": 0.1283,
-          "p_draw": 0.2346,
-          "p_away": 0.6371,
-          "result": null
-        },
-        {
-          "home": "Uzbekistan",
-          "away": "Colombia",
-          "p_home": 0.1089,
-          "p_draw": 0.2131,
-          "p_away": 0.678,
           "result": null
         }
       ]
@@ -996,37 +1062,37 @@
         {
           "name": "England",
           "probs": [
-            0.6197,
-            0.2497,
-            0.0973,
-            0.0333
+            0.6188,
+            0.2503,
+            0.0975,
+            0.0335
           ]
         },
         {
           "name": "Croatia",
           "probs": [
-            0.2553,
-            0.4093,
-            0.2268,
-            0.1087
+            0.2563,
+            0.4088,
+            0.2264,
+            0.1085
           ]
         },
         {
           "name": "Ghana",
           "probs": [
-            0.0772,
-            0.2027,
-            0.382,
-            0.338
+            0.077,
+            0.2022,
+            0.3813,
+            0.3395
           ]
         },
         {
           "name": "Panama",
           "probs": [
-            0.0478,
-            0.1383,
-            0.2939,
-            0.52
+            0.048,
+            0.1387,
+            0.2948,
+            0.5185
           ]
         }
       ],
@@ -1034,49 +1100,55 @@
         {
           "home": "England",
           "away": "Croatia",
-          "p_home": 0.5513,
-          "p_draw": 0.2527,
-          "p_away": 0.196,
+          "date": "2026-06-17T20:00:00Z",
+          "p_home": 0.5506,
+          "p_draw": 0.2517,
+          "p_away": 0.1978,
+          "result": null
+        },
+        {
+          "home": "Ghana",
+          "away": "Panama",
+          "date": "2026-06-17T23:00:00Z",
+          "p_home": 0.4704,
+          "p_draw": 0.2677,
+          "p_away": 0.2619,
           "result": null
         },
         {
           "home": "England",
           "away": "Ghana",
+          "date": "2026-06-23T20:00:00Z",
           "p_home": 0.7094,
           "p_draw": 0.1753,
           "p_away": 0.1153,
           "result": null
         },
         {
-          "home": "England",
-          "away": "Panama",
-          "p_home": 0.7245,
+          "home": "Panama",
+          "away": "Croatia",
+          "date": "2026-06-23T23:00:00Z",
+          "p_home": 0.1601,
+          "p_draw": 0.2299,
+          "p_away": 0.61,
+          "result": null
+        },
+        {
+          "home": "Panama",
+          "away": "England",
+          "date": "2026-06-27T21:00:00Z",
+          "p_home": 0.1082,
           "p_draw": 0.1673,
-          "p_away": 0.1082,
+          "p_away": 0.7245,
           "result": null
         },
         {
           "home": "Croatia",
           "away": "Ghana",
+          "date": "2026-06-27T21:00:00Z",
           "p_home": 0.5747,
           "p_draw": 0.2485,
           "p_away": 0.1768,
-          "result": null
-        },
-        {
-          "home": "Croatia",
-          "away": "Panama",
-          "p_home": 0.61,
-          "p_draw": 0.2299,
-          "p_away": 0.1601,
-          "result": null
-        },
-        {
-          "home": "Ghana",
-          "away": "Panama",
-          "p_home": 0.473,
-          "p_draw": 0.2664,
-          "p_away": 0.2606,
           "result": null
         }
       ]
