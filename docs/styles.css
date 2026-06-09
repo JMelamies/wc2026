@@ -200,6 +200,17 @@ tr:not(:last-child) td { border-bottom: 1px solid #f4f4f4; }
   border-bottom: 1px solid #f4f4f4;
 }
 
+@media (max-width: 480px) {
+  .grid {
+    padding: 0 8px;
+    gap: 8px;
+  }
+
+  header {
+    padding: 20px 8px 16px;
+  }
+}
+
 .toggle-btn {
   display: inline-block;
   margin-top: 12px;
