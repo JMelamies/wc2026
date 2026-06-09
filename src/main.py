@@ -74,7 +74,7 @@ def print_group(group_name, teams, matches, match_probs, group_probs):
 
 
 def write_json(all_group_probs, match_odds, match_results):
-    out_path = Path(__file__).parent.parent / 'web' / 'data' / 'group_rankings.json'
+    out_path = Path(__file__).parent.parent / 'docs' / 'data' / 'group_rankings.json'
     os.makedirs(out_path.parent, exist_ok=True)
 
     groups_data = {}
@@ -110,7 +110,7 @@ def write_json(all_group_probs, match_odds, match_results):
     with open(out_path, 'w', encoding='utf-8') as f:
         json.dump(payload, f, indent=2, ensure_ascii=False)
 
-    print(f"  JSON written → web/data/group_rankings.json")
+    print(f"  JSON written → docs/data/group_rankings.json")
 
 
 def main():
