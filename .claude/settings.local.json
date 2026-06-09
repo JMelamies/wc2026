@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Omistaja\\\\Documents\\\\GitHub\\\\wc2026\" -Recurse | Where-Object { !$_.PSIsContainer } | Select-Object @{n='Path';e={$_.FullName.Replace\\('C:\\\\Users\\\\Omistaja\\\\Documents\\\\GitHub\\\\wc2026\\\\',''\\)}} | Sort-Object Path)",
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Omistaja\\\\Documents\\\\GitHub\\\\wc2026\\\\web\" -Recurse | Select-Object @{n='Path';e={$_.FullName.Replace\\('C:\\\\Users\\\\Omistaja\\\\Documents\\\\GitHub\\\\wc2026\\\\',''\\)}} , @{n='Type';e={if\\($_.PSIsContainer\\){'dir'}else{'file'}}})"
+    ]
+  }
+}
