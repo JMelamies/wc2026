@@ -8,25 +8,21 @@ function dn(name) {
   return DISPLAY_NAMES[name] || name;
 }
 
-let appData = null;
+let appData    = null;
 let displayMode = 'prob'; // 'prob' | 'odds'
+const pairsOpen = new Set(); // group names whose pair panel is expanded
 
 // --- formatters ---
 
-function fmtCell(p) {
+function fmt(p) {
   return displayMode === 'prob'
     ? (p * 100).toFixed(1) + '%'
     : (1 / p).toFixed(2);
 }
 
 function fmtMatchLine(m) {
-  if (displayMode === 'prob') {
-    return [m.p_home, m.p_draw, m.p_away]
-      .map(p => (p * 100).toFixed(1) + '%')
-      .join(' / ');
-  }
   return [m.p_home, m.p_draw, m.p_away]
-    .map(p => (1 / p).toFixed(2))
+    .map(p => displayMode === 'prob' ? (p * 100).toFixed(1) + '%' : (1 / p).toFixed(2))
     .join(' / ');
 }
 
@@ -41,28 +37,31 @@ function cellStyle(prob, pos) {
   return `background:hsla(${HUE[pos]},65%,52%,${alpha})`;
 }
 
+function advStyle(prob) {
+  const alpha = (prob * 0.65 + 0.04).toFixed(2);
+  return `background:hsla(142,50%,48%,${alpha})`;
+}
+
 // --- rendering ---
 
 function renderGroup(name, group) {
-  const ths = ['Team', '1st', '2nd', '3rd', '4th']
+  // --- main table ---
+  const ths = ['Team', '1st', '2nd', '3rd', '4th', 'Adv']
     .map((h, i) => `<th${i > 0 ? ' class="num"' : ''}>${h}</th>`)
     .join('');
 
-  // Team rows — already sorted by probs[0] desc from Python
   const rows = group.teams.map(team => {
-    const probCells = team.probs
-      .map((p, pos) =>
-        `<td class="num" style="${cellStyle(p, pos)}">${fmtCell(p)}</td>`)
+    const posCells = team.probs
+      .map((p, pos) => `<td class="num" style="${cellStyle(p, pos)}">${fmt(p)}</td>`)
       .join('');
-    return `<tr><td>${dn(team.name)}</td>${probCells}</tr>`;
+    const advCell = `<td class="num adv-cell" style="${advStyle(team.adv_prob)}">${fmt(team.adv_prob)}</td>`;
+    return `<tr><td>${dn(team.name)}</td>${posCells}${advCell}</tr>`;
   }).join('');
 
-  // Match list — already in chronological order from Python
-  // Each <li> is a 3-column grid: date | teams | odds/result
+  // --- match list ---
   const matchItems = group.matches.map(m => {
-    const date = `<span class="match-date">${fmtDate(m.date)}</span>`;
+    const date  = `<span class="match-date">${fmtDate(m.date)}</span>`;
     const teams = `<span class="match-teams">${dn(m.home)} – ${dn(m.away)}</span>`;
-
     if (m.result) {
       let label;
       if (m.result === 'draw') {
@@ -76,6 +75,31 @@ function renderGroup(name, group) {
     return `<li>${date}${teams}<span class="match-odds">${fmtMatchLine(m)}</span></li>`;
   }).join('');
 
+  // --- pairs panel (conditionally rendered) ---
+  const isOpen   = pairsOpen.has(name);
+  const btnLabel = isOpen ? '1st/2nd pairs ▾' : '1st/2nd pairs ▸';
+
+  let pairsHtml = '';
+  if (isOpen && group.pairs && group.pairs.length) {
+    const pairRows = group.pairs.map(pair => {
+      const p = pair.prob;
+      const bg = `background:hsla(270,50%,60%,${(p * 1.8 + 0.05).toFixed(2)})`;
+      return `<tr>
+        <td>${dn(pair.first)}</td>
+        <td>${dn(pair.second)}</td>
+        <td class="num" style="${bg}">${fmt(p)}</td>
+      </tr>`;
+    }).join('');
+
+    pairsHtml = `
+      <div class="pairs-panel">
+        <table class="pairs-table">
+          <thead><tr><th>1st</th><th>2nd</th><th class="num">${displayMode === 'prob' ? 'Prob' : 'Odds'}</th></tr></thead>
+          <tbody>${pairRows}</tbody>
+        </table>
+      </div>`;
+  }
+
   return `
     <div class="card">
       <h2>Group ${name}</h2>
@@ -84,6 +108,8 @@ function renderGroup(name, group) {
         <tbody>${rows}</tbody>
       </table>
       <ul class="matches">${matchItems}</ul>
+      <button class="pairs-btn" onclick="togglePairs('${name}')">${btnLabel}</button>
+      ${pairsHtml}
     </div>`;
 }
 
@@ -97,6 +123,11 @@ function renderGrid() {
     '</div>';
 }
 
+function togglePairs(name) {
+  pairsOpen.has(name) ? pairsOpen.delete(name) : pairsOpen.add(name);
+  renderGrid();
+}
+
 function toggleMode() {
   displayMode = displayMode === 'prob' ? 'odds' : 'prob';
   document.getElementById('toggle-btn').textContent =
@@ -108,7 +139,7 @@ function toggleMode() {
 
 async function init() {
   const statusEl = document.getElementById('status');
-  const genEl = document.getElementById('generated');
+  const genEl    = document.getElementById('generated');
 
   try {
     const resp = await fetch('data/group_rankings.json');
@@ -116,20 +147,19 @@ async function init() {
     appData = await resp.json();
 
     genEl.textContent =
-      'Based on bookmaker odds · Updated ' +
-      appData.generated.replace('T', ' ');
+      'Based on bookmaker odds · Updated ' + appData.generated.replace('T', ' ');
 
     const btn = document.createElement('button');
-    btn.id = 'toggle-btn';
+    btn.id        = 'toggle-btn';
     btn.className = 'toggle-btn';
     btn.textContent = 'Show as odds';
-    btn.onclick = toggleMode;
+    btn.onclick   = toggleMode;
     genEl.insertAdjacentElement('afterend', btn);
 
     renderGrid();
   } catch (err) {
     statusEl.textContent = 'Failed to load data: ' + err.message;
-    statusEl.className = 'status error';
+    statusEl.className   = 'status error';
   }
 }
 

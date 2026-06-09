@@ -6,16 +6,13 @@ OUTCOME_LABELS = ['home', 'draw', 'away']
 
 def simulate_group(teams, matches, match_odds):
     """
-    Enumerate all 3^6 = 729 outcome combinations for a group and accumulate
-    finishing-position probabilities for each team.
+    Enumerate all 3^6 = 729 outcome combinations and accumulate statistics.
 
-    teams:       list of 4 team names
-    matches:     list of 6 (home, away) tuples (must match the order used by match_odds)
-    match_odds:  dict {(team_a, team_b): (p_a_wins, p_draw, p_b_wins)}
-
-    Returns: {team: [p_1st, p_2nd, p_3rd, p_4th]}
+    Returns a dict with:
+      'positions'  {team: [p_1st, p_2nd, p_3rd, p_4th]}
+      'pairs'      {(team_i, team_j): prob}  — ordered (1st, 2nd) pair probabilities
+      'third_pts'  {team: {k: prob}}  — P(team finishes 3rd with exactly k points)
     """
-    # Resolve (p_home, p_draw, p_away) for each match in the fixed order
     match_probs = []
     for home, away in matches:
         if (home, away) in match_odds:
@@ -26,7 +23,9 @@ def simulate_group(teams, matches, match_odds):
         else:
             match_probs.append((1 / 3, 1 / 3, 1 / 3))
 
-    result = {t: [0.0, 0.0, 0.0, 0.0] for t in teams}
+    positions  = {t: [0.0, 0.0, 0.0, 0.0] for t in teams}
+    pairs      = {}
+    third_pts  = {t: {} for t in teams}
 
     for combo in itertools.product(range(3), repeat=6):
         joint_prob = 1.0
@@ -34,10 +33,22 @@ def simulate_group(teams, matches, match_odds):
             joint_prob *= match_probs[i][idx]
 
         outcomes = [OUTCOME_LABELS[idx] for idx in combo]
-        shares = compute_position_shares(matches, outcomes)
+        shares, pair_probs, pts = compute_position_shares(matches, outcomes)
 
+        # Position shares
         for team in teams:
             for pos in range(4):
-                result[team][pos] += joint_prob * shares[team][pos]
+                positions[team][pos] += joint_prob * shares[team][pos]
 
-    return result
+        # (1st, 2nd) ordered pair probabilities
+        for (i, j), p in pair_probs.items():
+            pairs[(i, j)] = pairs.get((i, j), 0.0) + joint_prob * p
+
+        # 3rd-place point distribution: P(team is 3rd WITH exactly k points)
+        for team in teams:
+            s3 = shares[team][2]
+            if s3 > 0:
+                k = pts[team]
+                third_pts[team][k] = third_pts[team].get(k, 0.0) + joint_prob * s3
+
+    return {'positions': positions, 'pairs': pairs, 'third_pts': third_pts}

@@ -39,7 +39,7 @@ h1 {
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
   gap: 16px;
   max-width: 1400px;
   margin: 0 auto;
@@ -77,7 +77,7 @@ th {
   text-align: left;
 }
 
-th.num { text-align: right; }
+th.num { text-align: center; }
 
 td {
   padding: 5px 6px;
@@ -86,12 +86,36 @@ td {
 }
 
 td.num {
-  text-align: right;
+  text-align: center;
   font-weight: 400;
   border-radius: 4px;
 }
 
 tr:not(:last-child) td { border-bottom: 1px solid #f4f4f4; }
+
+/* Main group table: fixed layout so team names can't push numeric columns out */
+.card > table {
+  table-layout: fixed;
+}
+
+.card > table th:first-child {
+  width: 32%;
+}
+
+.card > table td:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Tighter horizontal padding on numeric cells so 6 columns fit comfortably */
+.card > table th.num {
+  padding: 3px 3px 6px;
+}
+
+.card > table td.num {
+  padding: 5px 3px;
+}
 
 .matches {
   list-style: none;
@@ -134,6 +158,46 @@ tr:not(:last-child) td { border-bottom: 1px solid #f4f4f4; }
   white-space: nowrap;
   text-align: right;
   padding-top: 1px;
+}
+
+.pairs-btn {
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: #f5f7fa;
+  border: 1px solid #dde2ea;
+  border-radius: 6px;
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  font-family: inherit;
+  color: #555;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.pairs-btn:hover {
+  background: #e8ecf2;
+  border-color: #bcc4d0;
+  color: #222;
+}
+
+.pairs-panel {
+  margin-top: 8px;
+}
+
+.pairs-table {
+  font-size: 0.78rem;
+  margin-bottom: 0;
+}
+
+.pairs-table th,
+.pairs-table td {
+  padding: 2px 6px;
+}
+
+.pairs-table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid #f4f4f4;
 }
 
 .toggle-btn {
