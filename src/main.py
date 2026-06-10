@@ -157,8 +157,9 @@ def main():
     if not args.cached:
         print("Fetching odds from The Odds API...")
         try:
-            match_odds = fetch_odds()
+            match_odds, credits = fetch_odds()
             print(f"  Got odds for {len(match_odds)} matches. Saved to odds_cache.json.")
+            print(f"  API credits — this request: {credits['this_request']} | total used: {credits['used_total']} | remaining: {credits['remaining']}")
         except Exception as exc:
             print(f"  Warning: could not fetch odds ({exc}). Trying cache...")
             match_odds, fetched_at = load_cached_odds()

@@ -15,7 +15,7 @@ def normalize(name):
 def fetch_odds():
     """
     Fetch odds from The Odds API, save to odds_cache.json, and return
-    dict: {(home_team, away_team): (p_home, p_draw, p_away)}
+    (odds_dict, credits_info) where credits_info is a dict with 'used' and 'remaining'.
     """
     params = {
         'apiKey': ODDS_API_KEY,
@@ -26,6 +26,11 @@ def fetch_odds():
 
     resp = requests.get(API_URL, params=params, timeout=15)
     resp.raise_for_status()
+    credits_info = {
+        'this_request': resp.headers.get('x-requests-last', '?'),
+        'used_total':   resp.headers.get('x-requests-used', '?'),
+        'remaining':    resp.headers.get('x-requests-remaining', '?'),
+    }
     events = resp.json()
 
     odds_dict = {}
@@ -61,7 +66,7 @@ def fetch_odds():
             odds_dict[(home, away)] = probs
 
     _save_cache(odds_dict, schedule)
-    return odds_dict
+    return odds_dict, credits_info
 
 
 def load_cached_odds():
