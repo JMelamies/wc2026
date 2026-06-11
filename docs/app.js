@@ -8,8 +8,9 @@ function dn(name) {
   return DISPLAY_NAMES[name] || name;
 }
 
-let appData    = null;
-let displayMode = 'prob'; // 'prob' | 'odds'
+let appData     = null;
+let displayMode = 'odds'; // 'prob' | 'odds'
+let flagT = 20;
 const pairsOpen = new Set(); // group names whose pair panel is expanded
 
 // --- formatters ---
@@ -42,6 +43,53 @@ function advStyle(prob) {
   return `background:hsla(142,50%,48%,${alpha})`;
 }
 
+// --- flagging ---
+
+function flagLevel(bf_odds, our_prob) {
+  if (!bf_odds || !our_prob || our_prob <= 0) return null;
+  const our_odds = 1 / our_prob;
+  const pct = (bf_odds - our_odds) / our_odds;
+  return pct >= flagT / 100 ? 'flag' : null;
+}
+
+function fmtBf(bfOdds) {
+  return displayMode === 'prob'
+    ? ((1 / bfOdds) * 100).toFixed(1) + '%'
+    : bfOdds.toFixed(2);
+}
+
+function applyFlags() {
+  document.querySelectorAll('[data-bf-gw]').forEach(cell => {
+    const bfOdds = parseFloat(cell.dataset.bfGw);
+    const prob   = parseFloat(cell.dataset.prob);
+    cell.classList.remove('cell-flag');
+    const existing = cell.querySelector('.bf-odds');
+    if (existing) existing.remove();
+    if (!bfOdds || isNaN(bfOdds)) return;
+    if (!flagLevel(bfOdds, prob)) return;
+    cell.classList.add('cell-flag');
+    const span = document.createElement('span');
+    span.className   = 'bf-odds';
+    span.textContent = fmtBf(bfOdds);
+    cell.appendChild(span);
+  });
+
+  document.querySelectorAll('[data-bf-tq]').forEach(cell => {
+    const bfOdds = parseFloat(cell.dataset.bfTq);
+    const prob   = parseFloat(cell.dataset.prob);
+    cell.classList.remove('cell-flag');
+    const existing = cell.querySelector('.bf-odds');
+    if (existing) existing.remove();
+    if (!bfOdds || isNaN(bfOdds)) return;
+    if (!flagLevel(bfOdds, prob)) return;
+    cell.classList.add('cell-flag');
+    const span = document.createElement('span');
+    span.className   = 'bf-odds';
+    span.textContent = fmtBf(bfOdds);
+    cell.appendChild(span);
+  });
+}
+
 // --- rendering ---
 
 function renderGroup(name, group) {
@@ -51,17 +99,21 @@ function renderGroup(name, group) {
     .join('');
 
   const rows = group.teams.map(team => {
-    const posCells = team.probs
-      .map((p, pos) => `<td class="num" style="${cellStyle(p, pos)}">${fmt(p)}</td>`)
-      .join('');
-    const advCell = `<td class="num adv-cell" style="${advStyle(team.adv_prob)}">${fmt(team.adv_prob)}</td>`;
+    const posCells = team.probs.map((p, pos) => {
+      if (pos === 0) {
+        return `<td class="num" style="${cellStyle(p, pos)}" data-bf-gw="${team.bf_group_winner_odds || ''}" data-prob="${p}">${fmt(p)}</td>`;
+      }
+      return `<td class="num" style="${cellStyle(p, pos)}">${fmt(p)}</td>`;
+    }).join('');
+    const advCell = `<td class="num adv-cell" style="${advStyle(team.adv_prob)}" data-bf-tq="${team.bf_to_qualify_odds || ''}" data-prob="${team.adv_prob}">${fmt(team.adv_prob)}</td>`;
     return `<tr><td>${dn(team.name)}</td>${posCells}${advCell}</tr>`;
   }).join('');
 
   // --- match list ---
   const matchItems = group.matches.map(m => {
-    const date  = `<span class="match-date">${fmtDate(m.date)}</span>`;
-    const teams = `<span class="match-teams">${dn(m.home)} – ${dn(m.away)}</span>`;
+    const date     = `<span class="match-date">${fmtDate(m.date)}</span>`;
+    const teams    = `<span class="match-teams">${dn(m.home)} – ${dn(m.away)}</span>`;
+    const liveBadge = m.inplay ? '<span class="live-badge">🔴 LIVE</span>' : '';
     if (m.result) {
       let label;
       if (m.result === 'draw') {
@@ -70,9 +122,9 @@ function renderGroup(name, group) {
         const winner = dn(m.result === 'home' ? m.home : m.away);
         label = `<strong>${winner}</strong> win`;
       }
-      return `<li>${date}${teams}<span class="match-ft">FT: ${label}</span></li>`;
+      return `<li>${date}${teams}<span class="match-ft">FT: ${label}</span>${liveBadge}</li>`;
     }
-    return `<li>${date}${teams}<span class="match-odds">${fmtMatchLine(m)}</span></li>`;
+    return `<li>${date}${teams}<span class="match-odds">${fmtMatchLine(m)}</span>${liveBadge}</li>`;
   }).join('');
 
   // --- pairs panel (conditionally rendered) ---
@@ -82,7 +134,7 @@ function renderGroup(name, group) {
   let pairsHtml = '';
   if (isOpen && group.pairs && group.pairs.length) {
     const pairRows = group.pairs.map(pair => {
-      const p = pair.prob;
+      const p  = pair.prob;
       const bg = `background:hsla(270,50%,60%,${(p * 1.8 + 0.05).toFixed(2)})`;
       return `<tr>
         <td>${dn(pair.first)}</td>
@@ -121,6 +173,7 @@ function renderGrid() {
       .map(([name, group]) => renderGroup(name, group))
       .join('') +
     '</div>';
+  applyFlags();
 }
 
 function togglePairs(name) {
@@ -152,9 +205,19 @@ async function init() {
     const btn = document.createElement('button');
     btn.id        = 'toggle-btn';
     btn.className = 'toggle-btn';
-    btn.textContent = 'Show as odds';
+    btn.textContent = 'Show as %';
     btn.onclick   = toggleMode;
     genEl.insertAdjacentElement('afterend', btn);
+
+    const controls = document.createElement('div');
+    controls.className = 'threshold-controls';
+    controls.innerHTML =
+      'Flag threshold: <input type="number" id="flagT" value="20" min="0" max="100"> %';
+    btn.insertAdjacentElement('afterend', controls);
+
+    document.getElementById('flagT').addEventListener('input', e => {
+      flagT = parseFloat(e.target.value) || 0; applyFlags();
+    });
 
     renderGrid();
   } catch (err) {

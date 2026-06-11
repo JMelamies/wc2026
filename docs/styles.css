@@ -211,6 +211,14 @@ tr:not(:last-child) td { border-bottom: 1px solid #f4f4f4; }
   }
 }
 
+.cell-flag  { outline: 2px solid #f59e0b; outline-offset: -1px; }
+.bf-odds    { font-size: 0.7em; opacity: 0.75; margin-left: 3px; vertical-align: super; }
+.live-badge { color: #ef4444; font-size: 0.75em; font-weight: 700; margin-left: 6px; }
+.threshold-controls {
+  text-align: center; margin-top: 20px; margin-bottom: 16px; font-size: 0.85rem; color: #666;
+}
+.threshold-controls input { width: 52px; margin: 0 4px; padding: 2px 4px; }
+
 .toggle-btn {
   display: inline-block;
   margin-top: 12px;

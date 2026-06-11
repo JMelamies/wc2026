@@ -2,7 +2,16 @@
   "permissions": {
     "allow": [
       "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Omistaja\\\\Documents\\\\GitHub\\\\wc2026\" -Recurse | Where-Object { !$_.PSIsContainer } | Select-Object @{n='Path';e={$_.FullName.Replace\\('C:\\\\Users\\\\Omistaja\\\\Documents\\\\GitHub\\\\wc2026\\\\',''\\)}} | Sort-Object Path)",
-      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Omistaja\\\\Documents\\\\GitHub\\\\wc2026\\\\web\" -Recurse | Select-Object @{n='Path';e={$_.FullName.Replace\\('C:\\\\Users\\\\Omistaja\\\\Documents\\\\GitHub\\\\wc2026\\\\',''\\)}} , @{n='Type';e={if\\($_.PSIsContainer\\){'dir'}else{'file'}}})"
+      "PowerShell(Get-ChildItem \"C:\\\\Users\\\\Omistaja\\\\Documents\\\\GitHub\\\\wc2026\\\\web\" -Recurse | Select-Object @{n='Path';e={$_.FullName.Replace\\('C:\\\\Users\\\\Omistaja\\\\Documents\\\\GitHub\\\\wc2026\\\\',''\\)}} , @{n='Type';e={if\\($_.PSIsContainer\\){'dir'}else{'file'}}})",
+      "Bash(python -c \"import sys; sys.path.insert\\(0,'src'\\); import betfair_fetcher; print\\('betfair_fetcher OK'\\); import main; print\\('main OK'\\)\")",
+      "Bash(python -X utf8 src/main.py --mode cached)",
+      "Bash(pip install *)",
+      "Bash(python -X utf8 src/main.py --mode betfair-group --group A)",
+      "Bash(python -c \"import ast, sys; src=open\\('src/betfair_fetcher.py'\\).read\\(\\); print\\('batch size:', [l for l in src.splitlines\\(\\) if 'range\\(0,' in l]\\)\")",
+      "Bash(python -c ' *)",
+      "Bash(python -X utf8 src/main.py --mode live)",
+      "Bash(python -X utf8 -c ' *)",
+      "Bash(python -X utf8 src/main.py --mode normal)"
     ]
   }
 }

@@ -1,0 +1,152 @@
+{
+  "fetched": "2026-06-11T03:16:43",
+  "match_odds": {},
+  "group_winner": {
+    "A": {
+      "Mexico": 1.76,
+      "South Korea": 4.9,
+      "Czechia": 5.4,
+      "South Africa": 16.5
+    },
+    "B": {
+      "Switzerland": 1.77,
+      "Canada": 3.15,
+      "Bosnia-Herzegovina": 8.4,
+      "Qatar": 60.0
+    },
+    "C": {
+      "Brazil": 1.39,
+      "Morocco": 4.9,
+      "Scotland": 13.0,
+      "Haiti": 100.0
+    },
+    "D": {
+      "United States": 2.62,
+      "Türkiye": 2.84,
+      "Paraguay": 5.2,
+      "Australia": 9.2
+    },
+    "E": {
+      "Germany": 1.5,
+      "Ecuador": 4.6,
+      "Ivory Coast": 7.2,
+      "Curaçao": 190.0
+    },
+    "F": {
+      "Netherlands": 1.83,
+      "Japan": 3.6,
+      "Sweden": 7.2,
+      "Tunisia": 18.0
+    },
+    "G": {
+      "Belgium": 1.46,
+      "Egypt": 5.8,
+      "Iran": 8.0,
+      "New Zealand": 28.0
+    },
+    "H": {
+      "Spain": 1.27,
+      "Uruguay": 5.0,
+      "Saudi Arabia": 60.0,
+      "Cape Verde": 65.0
+    },
+    "I": {
+      "France": 1.56,
+      "Norway": 4.0,
+      "Senegal": 8.4,
+      "Iraq": 120.0
+    },
+    "J": {
+      "Argentina": 1.39,
+      "Austria": 4.9,
+      "Algeria": 11.0,
+      "Jordan": 85.0
+    },
+    "K": {
+      "Portugal": 1.63,
+      "Colombia": 3.0,
+      "DR Congo": 19.5,
+      "Uzbekistan": 36.0
+    },
+    "L": {
+      "England": 1.43,
+      "Croatia": 4.4,
+      "Ghana": 15.0,
+      "Panama": 44.0
+    }
+  },
+  "to_qualify": {
+    "A": {
+      "Mexico": 1.09,
+      "Czechia": 1.43,
+      "South Korea": 1.38,
+      "South Africa": 2.54
+    },
+    "B": {
+      "Switzerland": 1.07,
+      "Canada": 1.18,
+      "Bosnia-Herzegovina": 1.51,
+      "Qatar": 5.0
+    },
+    "C": {
+      "Brazil": 1.02,
+      "Morocco": 1.14,
+      "Scotland": 1.47,
+      "Haiti": 8.2
+    },
+    "D": {
+      "United States": 1.17,
+      "Türkiye": 1.27,
+      "Paraguay": 1.56,
+      "Australia": 2.12
+    },
+    "F": {
+      "Netherlands": 1.08,
+      "Japan": 1.27,
+      "Sweden": 1.57,
+      "Tunisia": 2.72
+    },
+    "G": {
+      "Belgium": 1.05,
+      "Egypt": 1.32,
+      "Iran": 1.58,
+      "New Zealand": 2.98
+    },
+    "H": {
+      "Spain": 1.01,
+      "Uruguay": 1.15,
+      "Saudi Arabia": 2.82,
+      "Cape Verde": 3.1
+    },
+    "I": {
+      "France": 1.03,
+      "Norway": 1.15,
+      "Senegal": 1.37,
+      "Iraq": 7.0
+    },
+    "J": {
+      "Argentina": 1.02,
+      "Austria": 1.19,
+      "Algeria": 1.44,
+      "Jordan": 5.0
+    },
+    "K": {
+      "Portugal": 1.04,
+      "Colombia": 1.12,
+      "DR Congo": 2.24,
+      "Uzbekistan": 3.0
+    },
+    "L": {
+      "England": 1.04,
+      "Croatia": 1.2,
+      "Ghana": 1.93,
+      "Panama": 3.0
+    },
+    "E": {
+      "Germany": 1.01,
+      "Ecuador": 1.13,
+      "Ivory Coast": 1.21,
+      "Curaçao": 12.0
+    }
+  }
+}

@@ -6,6 +6,10 @@ load_dotenv(dotenv_path=Path(__file__).parent.parent / '.env')
 
 ODDS_API_KEY = os.getenv('ODDS_API_KEY')
 
+BETFAIR_APP_KEY = os.getenv('BETFAIR_APP_KEY')
+BETFAIR_USERNAME = os.getenv('BETFAIR_USERNAME')
+BETFAIR_PASSWORD = os.getenv('BETFAIR_PASSWORD')
+
 # Map Odds API team name variants → canonical names used in groups.py
 TEAM_ALIASES = {
     'Czech Republic':                   'Czechia',
@@ -31,4 +35,5 @@ TEAM_ALIASES = {
     'Türkiye':                          'Türkiye',
     'Czechia':                          'Czechia',
     'Bosnia-Herzegovina':               'Bosnia-Herzegovina',
+    'Bosnia':                           'Bosnia-Herzegovina',
 }
