@@ -11,7 +11,9 @@
       "Bash(python -c ' *)",
       "Bash(python -X utf8 src/main.py --mode live)",
       "Bash(python -X utf8 -c ' *)",
-      "Bash(python -X utf8 src/main.py --mode normal)"
+      "Bash(python -X utf8 src/main.py --mode normal)",
+      "Bash(playwright install *)",
+      "Bash(python *)"
     ]
   }
 }

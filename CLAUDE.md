@@ -3,8 +3,8 @@
 ## Project Goal
 Calculate the probability of each team finishing in each position (1st–4th) in their group at the
 2026 FIFA World Cup, using betting odds and completed match results. Display results via a static
-web site hosted on GitHub Pages. Compare calculated probabilities against Betfair Exchange markets
-to identify value opportunities.
+web site hosted on GitHub Pages. Compare calculated probabilities against Betfair Exchange and
+Unibet markets to identify value opportunities.
 
 ---
 
@@ -12,11 +12,12 @@ to identify value opportunities.
 ```
 wc2026/
 ├── CLAUDE.md
-├── requirements.txt              # requests, python-dotenv, betfairlightweight
+├── requirements.txt              # requests, python-dotenv, betfairlightweight, playwright
 ├── .env                          # not committed
 ├── results_cache.json            # committed, project root
 ├── odds_cache.json               # committed, project root
-├── betfair_cache.json            # committed, project root (written by main.py)
+├── betfair_cache.json            # committed, project root
+├── unibet_cache.json             # committed, project root (written by unibet_scraper.py)
 │
 ├── src/
 │   ├── config.py                 # loads API keys from .env; TEAM_ALIASES dict
@@ -24,6 +25,7 @@ wc2026/
 │   ├── odds_fetcher.py           # fetch_odds(), load_cached_odds(), load_schedule()
 │   ├── results_fetcher.py        # fetch_results() → results_cache.json
 │   ├── betfair_fetcher.py        # fetch_betfair(), load_betfair_cache(), get_inplay_matches()
+│   ├── unibet_scraper.py         # scrape_unibet(), load_unibet_cache()
 │   ├── ranking_rules.py          # compute_position_shares()
 │   ├── simulator.py              # simulate_group() → {positions, pairs}
 │   ├── qualification.py          # compute_advancement_probs()
@@ -35,20 +37,29 @@ wc2026/
     ├── styles.css
     └── data/
         ├── group_rankings.json   # written by main.py
-        └── betfair_cache.json    # copied from project root by main.py
+        ├── betfair_cache.json    # copied from project root by main.py
+        └── unibet_cache.json     # copied from project root by unibet_scraper.py
 ```
 
 ---
 
 ## Running the calculator
 ```
-python src/main.py                              # default: Odds API + results (normal mode)
-python src/main.py --mode normal               # same as above
-python src/main.py --mode cached               # no API calls, load from cache files
-python src/main.py --mode live                 # cached odds baseline + Betfair override for in-play matches
-python src/main.py --mode all                  # Odds API + results + Betfair in-play
-python src/main.py --mode betfair-group --group A  # results + Betfair for all Group A matches
+python src/main.py                                  # default: normal mode
+python src/main.py --mode normal                    # Odds API + results
+python src/main.py --mode cached                    # no API calls, load all from cache
+python src/main.py --mode live                      # cached odds + Betfair in-play override
+python src/main.py --mode all                       # Odds API + results + Betfair in-play
+python src/main.py --mode betfair-group --group A   # results + Betfair for all Group A matches
 ```
+
+## Running the Unibet scraper (separate script)
+```
+python src/unibet_scraper.py              # scrape all 12 groups
+python src/unibet_scraper.py --group A    # scrape one group (for testing)
+python src/unibet_scraper.py --debug      # headless=False for DOM inspection
+```
+Requires one-time setup: `playwright install chromium`
 
 ---
 
@@ -57,11 +68,11 @@ python src/main.py --mode betfair-group --group A  # results + Betfair for all G
 ### simulate_group() → dict
 Returns `{'positions': {team: [p1,p2,p3,p4]}, 'pairs': {(first,second): prob}}`
 - `positions`: finishing position probabilities per team
-- `pairs`: probability of each (1st_team, 2nd_team) combination, sums to 1.0
+- `pairs`: probability of each (1st_team, 2nd_team) ordered combination, sums to 1.0
 
 ### compute_advancement_probs(all_sim_results) → dict
-Returns `{team: adv_prob}` where `adv_prob` = probability of advancing to round of 32.
-Accounts for: automatic qualification as 1st or 2nd + being among the 8 best 3rd-place teams.
+Returns `{team: adv_prob}` — probability of advancing to round of 32.
+Accounts for: 1st + 2nd automatic qualification + 8 best 3rd-place teams.
 
 ### odds_fetcher
 - `fetch_odds()` → `(match_odds_dict, credits_dict)`, writes `odds_cache.json`
@@ -71,15 +82,24 @@ Accounts for: automatic qualification as 1st or 2nd + being among the 8 best 3rd
 ### results_fetcher
 - `fetch_results()` → `{(home, away): (p_home, p_draw, p_away)}` with certainty values
 
+### betfair_fetcher
+- `fetch_betfair(groups_filter=None, fetch_match_odds=True)` → dict, writes betfair_cache.json
+- `load_betfair_cache()` → dict (empty structure if not found)
+- `get_inplay_matches(betfair_data)` → list of (home, away) tuples
+
+### unibet_scraper
+- `scrape_unibet(groups=None)` → dict, writes unibet_cache.json + docs/data/unibet_cache.json
+- `load_unibet_cache()` → dict (empty structure if not found)
+
 ### Priority order for match probabilities
-1. Completed result from `results_cache.json` — certainty `(1,0,0)` / `(0,1,0)` / `(0,0,1)`
-2. Betfair in-play odds (when applicable per mode — see below)
+1. Completed result from `results_cache.json`
+2. Betfair in-play odds (when applicable per mode)
 3. Odds API odds from `odds_cache.json`
 4. Fallback `(1/3, 1/3, 1/3)`
 
 ---
 
-## group_rankings.json schema (current)
+## group_rankings.json schema
 Written to `docs/data/group_rankings.json` by `main.py`.
 
 ```json
@@ -91,11 +111,15 @@ Written to `docs/data/group_rankings.json` by `main.py`.
         {
           "name": "Mexico",
           "probs": [0.452, 0.301, 0.164, 0.083],
-          "adv_prob": 0.753
+          "adv_prob": 0.753,
+          "bf_group_winner_odds": 1.85,
+          "bf_to_qualify_odds": 1.25,
+          "ub_group_winner_odds": 2.50,
+          "ub_fourth_place_odds": 5.00
         }
       ],
       "pairs": [
-        {"first": "Mexico", "second": "South Korea", "prob": 0.312}
+        {"first": "Mexico", "second": "South Korea", "prob": 0.312, "ub_odds": 3.10}
       ],
       "matches": [
         {
@@ -105,7 +129,8 @@ Written to `docs/data/group_rankings.json` by `main.py`.
           "p_home": 0.45,
           "p_draw": 0.28,
           "p_away": 0.27,
-          "result": null
+          "result": null,
+          "inplay": false
         }
       ]
     }
@@ -113,62 +138,40 @@ Written to `docs/data/group_rankings.json` by `main.py`.
 }
 ```
 
+Field notes:
 - `probs`: `[p_1st, p_2nd, p_3rd, p_4th]`, sum to 1.0
 - `adv_prob`: probability of advancing to round of 32
-- `pairs`: all 12 (1st, 2nd) team combinations sorted by prob descending, sum to 1.0
+- `pairs`: all 12 ordered (1st, 2nd) combinations sorted by prob descending, sum to 1.0
+- `bf_*` fields: Betfair best back decimal odds, `null` if unavailable
+- `ub_group_winner_odds`: Unibet decimal odds for winning the group, `null` if unavailable
+- `ub_fourth_place_odds`: Unibet decimal odds for finishing 4th, `null` if unavailable
+- `pairs[].ub_odds`: Unibet decimal odds for that ordered pair, `null` if unavailable
 - `matches[].result`: `null` / `"home"` / `"draw"` / `"away"`
-- `matches[].date`: ISO datetime string or `null`
+- `matches[].inplay`: `true` if Betfair reports match as currently in-play
 - Teams sorted by `probs[0]` descending; groups sorted A–L
 
 ---
 
-## Betfair integration (TO BE IMPLEMENTED)
+## Betfair integration
 
-### New environment variables (already in .env)
+### Environment variables (in .env)
 ```
 BETFAIR_APP_KEY=...
 BETFAIR_USERNAME=...
 BETFAIR_PASSWORD=...
 ```
-Load in `config.py` alongside existing keys.
 
-### New file: src/betfair_fetcher.py
-Uses `betfairlightweight` library. Manages session internally.
-
-#### Functions
-
-**`fetch_betfair(groups_filter=None) -> dict`**
-Fetches Betfair markets, writes `betfair_cache.json` to project root, returns data.
-- `groups_filter`: optional list of group letters — if provided, only fetch match odds
-  for those groups. Always fetch group_winner and to_qualify for all groups.
-- On any failure: warn, return existing cache if available, else empty structure.
-
-**`load_betfair_cache() -> dict`**
-Load `betfair_cache.json` from project root. Return empty structure if not found.
-
-**`get_inplay_matches(betfair_data) -> list[tuple]`**
-Return list of `(home, away)` tuples for matches currently in-play per Betfair.
-
-#### Markets to fetch
-- `MATCH_ODDS` — for match outcome probabilities (in-play override)
-- `TO_QUALIFY` — for adv_prob comparison
-- `WINNER` — for p_1st comparison (group winner market)
-
-Filter: `eventTypeId="1"` (soccer), competition name containing "World Cup 2026".
-Map all runner/team names through `TEAM_ALIASES` from `config.py`.
-Use best available **back price** per runner.
+### betfair_fetcher.py
+Uses `betfairlightweight` with non-certificate login (no SSL cert files required).
+Competition resolved via `listCompetitions` where name contains `'World Cup'`.
+Markets fetched in batches of 40 with `virtualise=False`.
 
 #### betfair_cache.json schema
 ```json
 {
   "fetched": "2026-06-10T14:32:00",
   "match_odds": {
-    "Mexico|South Korea": {
-      "home": 2.10,
-      "draw": 3.40,
-      "away": 3.60,
-      "inplay": false
-    }
+    "Mexico|South Korea": {"home": 2.10, "draw": 3.40, "away": 3.60, "inplay": false}
   },
   "group_winner": {
     "A": {"Mexico": 1.85, "South Korea": 3.20, "South Africa": 8.00, "Czechia": 6.50}
@@ -178,96 +181,101 @@ Use best available **back price** per runner.
   }
 }
 ```
-All values are decimal back odds. Keys use canonical team names from `groups.py`.
 
-### Updated running modes
-Replace the current `--cached` flag with `--mode` argument:
+### Running modes
 
-```
-python src/main.py --mode normal        # default: Odds API + results (replaces no-flag)
-python src/main.py --mode cached        # replaces --cached flag
-python src/main.py --mode live          # results + Betfair for in-play matches only
-python src/main.py --mode all           # Odds API + results + Betfair for in-play matches
-python src/main.py --mode betfair-group --group A   # results + Betfair for all matches in group A
-```
-
-| Mode | Odds API | Betfair | Scope |
+| Mode | Odds API | Betfair match odds | Betfair winner/qualify |
 |---|---|---|---|
-| `cached` | load cache | load cache | no API calls |
-| `normal` | fetch | — | upcoming matches |
-| `live` | load cache | fetch | Betfair overrides in-play matches |
-| `all` | fetch | fetch | Odds API upcoming + Betfair in-play |
-| `betfair-group` | — | fetch | ongoing + upcoming in `--group X` only |
+| `cached` | load cache | — | fetch fresh |
+| `normal` | fetch | — | fetch fresh |
+| `live` | load cache | fetch in-play | fetch fresh |
+| `all` | fetch | fetch in-play | fetch fresh |
+| `betfair-group` | load cache | fetch specified group | fetch fresh all groups |
 
-Betfair in-play odds are converted to normalised probabilities before overriding Odds API:
+---
+
+## Unibet scraper
+
+### unibet_scraper.py
+Playwright + Chromium, headless by default.
+Single browser instance for all 12 pages.
+1–2 second wait between pages.
+
+#### Group URL mapping
 ```python
-ph, pd, pa = 1/bf_home, 1/bf_draw, 1/bf_away
-total = ph + pd + pa
-probs = (ph/total, pd/total, pa/total)
-```
-
-### Updated group_rankings.json schema (add Betfair fields)
-Add to each team entry:
-```json
-{
-  "name": "Mexico",
-  "probs": [0.452, 0.301, 0.164, 0.083],
-  "adv_prob": 0.753,
-  "bf_group_winner_odds": 1.85,
-  "bf_to_qualify_odds": 1.25
+GROUP_URLS = {
+    'A': 'https://fi.unibet.com/betting/sports/event/1025831732',
+    'B': 'https://fi.unibet.com/betting/sports/event/1025831733',
+    'C': 'https://fi.unibet.com/betting/sports/event/1025831734',
+    'F': 'https://fi.unibet.com/betting/sports/event/1025831735',
+    'G': 'https://fi.unibet.com/betting/sports/event/1025831736',
+    'D': 'https://fi.unibet.com/betting/sports/event/1025831737',
+    'E': 'https://fi.unibet.com/betting/sports/event/1025831738',
+    'J': 'https://fi.unibet.com/betting/sports/event/1025831739',
+    'I': 'https://fi.unibet.com/betting/sports/event/1025831740',
+    'K': 'https://fi.unibet.com/betting/sports/event/1025831741',
+    'L': 'https://fi.unibet.com/betting/sports/event/1025831742',
+    'H': 'https://fi.unibet.com/betting/sports/event/1025831743',
 }
 ```
-Add to each match entry:
+
+#### Markets scraped per page
+1. **Group winner** — heading contains "Lohkovoittaja" or "voittaja"
+2. **Finish 4th** — heading contains "Neljäs" or "4." or "viimeinen"
+3. **1st/2nd pair** — heading contains "1. ja 2." or "kaksi parasta"
+   - Runner format: "Team1 / Team2" or "Team1 & Team2" (both team names extracted)
+   - Order preserved: first listed = 1st place, second listed = 2nd place
+
+#### unibet_cache.json schema
 ```json
 {
-  "home": "Mexico", "away": "South Korea",
-  "date": "2026-06-12T18:00:00",
-  "p_home": 0.45, "p_draw": 0.28, "p_away": 0.27,
-  "result": null,
-  "inplay": false
+  "fetched": "2026-06-10T14:32:00",
+  "group_winner": {
+    "A": {"Mexico": 2.50, "South Korea": 3.20, "South Africa": 8.00, "Czechia": 6.50}
+  },
+  "fourth_place": {
+    "A": {"Mexico": 5.00, "South Korea": 4.00, "South Africa": 2.10, "Czechia": 2.50}
+  },
+  "pairs": {
+    "A": {
+      "Mexico|South Korea": 3.10,
+      "South Korea|Mexico": 4.50,
+      "Mexico|South Africa": 8.00
+    }
+  }
 }
 ```
-- `bf_*` fields are `null` when Betfair data not available
-- `inplay` is `false` by default
 
-After writing `docs/data/group_rankings.json`, also copy `betfair_cache.json` from
-project root to `docs/data/betfair_cache.json` so the frontend can access it.
+---
 
-### Frontend: Betfair comparison & flagging (app.js + styles.css)
+## Frontend flagging (app.js + styles.css)
 
-#### Threshold controls
-Add to page header, above group cards:
-```
-Flag threshold: [20] %     Super-flag threshold: [50] %
-```
-Two `<input type="number">` fields. On change, re-evaluate all flags client-side instantly.
+### Threshold controls
+Two number inputs in page header (default: flag=20%, super-flag=50%).
+Re-evaluates all flags client-side on change — no refetch.
 
-#### Flagging logic
-Flag when **Betfair odds are higher than our implied odds** — Betfair thinks outcome is
-less likely than we do → potential value.
-
+### Flag condition (same for both sources)
 ```javascript
-function flagLevel(bf_odds, our_prob, flagT, superT) {
-  if (!bf_odds || !our_prob || our_prob <= 0) return null;
-  const our_odds = 1 / our_prob;
-  const pct = (bf_odds - our_odds) / our_odds;  // e.g. (110-90)/90 = 0.22
-  if (pct >= superT / 100) return 'super';
-  if (pct >= flagT / 100) return 'flag';
-  return null;
-}
+const pct = (source_odds - 1/our_prob) / (1/our_prob);
+// flag if pct >= flagT/100, super-flag if pct >= superT/100
 ```
+Flag when source odds are HIGHER than our implied odds (source thinks less likely = value).
 
-Apply to:
-- `1st` cell: `flagLevel(team.bf_group_winner_odds, team.probs[0], ...)`
-- `adv` cell: `flagLevel(team.bf_to_qualify_odds, team.adv_prob, ...)`
+### Visual treatment
+- **Betfair flags**: amber/red left border (4px)
+- **Unibet flags**: amber/red right border (4px)
+- Both can show simultaneously on the same cell
+- Superscript shows source and odds: `ᴮᶠ1.85` and/or `ᵁᴮ2.50`
+- Display value matches current page mode (% or decimal odds)
 
-#### Flagged cell styling
-- Normal flag: amber left border (4px solid `#f59e0b`) + small superscript with Betfair odds
-- Super-flag: red left border (4px solid `#ef4444`) + same superscript
-- Example cell content: `45.2% ᴮᶠ1.85`
+### Cells where flags apply
+- `1st` cell: Betfair group_winner + Unibet group_winner
+- `Adv` cell: Betfair to_qualify (no Unibet equivalent)
+- `4th` cell: Unibet fourth_place (no Betfair equivalent)
+- Pair rows: Unibet pair odds vs our pair prob
 
-#### In-play indicator
-Show 🔴 LIVE badge next to any match in the matches list where `inplay === true`.
+### In-play indicator
+🔴 LIVE badge on any match in match list where `inplay === true`.
 
 ---
 
@@ -291,9 +299,8 @@ Show 🔴 LIVE badge next to any match in the matches list where `inplay === tru
 ---
 
 ## Key constraints
-- `results_cache.json`, `odds_cache.json`, `betfair_cache.json` all stay in project root
+- All cache files stay in project root; `docs/data/` copies are for frontend access only
 - `docs/data/` path used throughout (not `web/data/`)
 - `.env` in project root; loaded via `Path(__file__).parent.parent / '.env'`
 - Cache file paths use `Path(__file__).parent.parent / 'filename.json'`
 - `.gitignore`: includes `.env`; does NOT ignore cache files or `docs/data/`
-- Add `betfairlightweight` to `requirements.txt`

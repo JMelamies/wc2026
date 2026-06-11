@@ -1,117 +1,137 @@
 {
-  "generated": "2026-06-11T11:27:46",
+  "generated": "2026-06-11T21:16:41",
   "groups": {
     "A": {
       "teams": [
         {
           "name": "Mexico",
           "probs": [
-            0.5295,
-            0.263,
-            0.1436,
-            0.064
+            0.5329,
+            0.2623,
+            0.1424,
+            0.0624
           ],
-          "adv_prob": 0.9047,
-          "bf_group_winner_odds": 1.76,
-          "bf_to_qualify_odds": 1.09
-        },
-        {
-          "name": "Czechia",
-          "probs": [
-            0.1997,
-            0.2842,
-            0.2903,
-            0.2258
-          ],
-          "adv_prob": 0.6785,
-          "bf_group_winner_odds": 5.4,
-          "bf_to_qualify_odds": 1.41
+          "adv_prob": 0.9067,
+          "bf_group_winner_odds": 1.71,
+          "bf_to_qualify_odds": 1.09,
+          "ub_group_winner_odds": 1.72,
+          "ub_fourth_place_odds": 10.0
         },
         {
           "name": "South Korea",
           "probs": [
-            0.1968,
-            0.2873,
-            0.2883,
-            0.2277
+            0.1989,
+            0.2906,
+            0.2867,
+            0.2239
           ],
-          "adv_prob": 0.6786,
-          "bf_group_winner_odds": 4.9,
-          "bf_to_qualify_odds": 1.38
+          "adv_prob": 0.683,
+          "bf_group_winner_odds": 5.2,
+          "bf_to_qualify_odds": 1.38,
+          "ub_group_winner_odds": 4.25,
+          "ub_fourth_place_odds": 4.0
+        },
+        {
+          "name": "Czechia",
+          "probs": [
+            0.1959,
+            0.2824,
+            0.2932,
+            0.2286
+          ],
+          "adv_prob": 0.6742,
+          "bf_group_winner_odds": 5.4,
+          "bf_to_qualify_odds": 1.41,
+          "ub_group_winner_odds": 4.5,
+          "ub_fourth_place_odds": 5.0
         },
         {
           "name": "South Africa",
           "probs": [
-            0.0741,
-            0.1655,
-            0.2778,
-            0.4825
+            0.0724,
+            0.1647,
+            0.2777,
+            0.4852
           ],
-          "adv_prob": 0.4081,
-          "bf_group_winner_odds": 17.0,
-          "bf_to_qualify_odds": 3.1
+          "adv_prob": 0.4056,
+          "bf_group_winner_odds": 20.0,
+          "bf_to_qualify_odds": 2.68,
+          "ub_group_winner_odds": 13.0,
+          "ub_fourth_place_odds": 1.8
         }
       ],
       "pairs": [
         {
           "first": "Mexico",
           "second": "South Korea",
-          "prob": 0.2122
+          "prob": 0.2167,
+          "ub_odds": 4.5
         },
         {
           "first": "Mexico",
           "second": "Czechia",
-          "prob": 0.207
+          "prob": 0.2052,
+          "ub_odds": 4.0
         },
         {
           "first": "Czechia",
           "second": "Mexico",
-          "prob": 0.1154
+          "prob": 0.1137,
+          "ub_odds": 5.5
         },
         {
           "first": "South Korea",
           "second": "Mexico",
-          "prob": 0.1113
+          "prob": 0.1132,
+          "ub_odds": 9.0
         },
         {
           "first": "Mexico",
           "second": "South Africa",
-          "prob": 0.1103
+          "prob": 0.111,
+          "ub_odds": 9.0
         },
         {
           "first": "South Korea",
           "second": "Czechia",
-          "prob": 0.0582
+          "prob": 0.0588,
+          "ub_odds": 12.0
         },
         {
           "first": "Czechia",
           "second": "South Korea",
-          "prob": 0.0562
+          "prob": 0.0552,
+          "ub_odds": 10.0
         },
         {
           "first": "South Africa",
           "second": "Mexico",
-          "prob": 0.0362
+          "prob": 0.0354,
+          "ub_odds": 21.0
         },
         {
           "first": "Czechia",
           "second": "South Africa",
-          "prob": 0.0281
+          "prob": 0.0269,
+          "ub_odds": 15.0
         },
         {
           "first": "South Korea",
           "second": "South Africa",
-          "prob": 0.0272
-        },
-        {
-          "first": "South Africa",
-          "second": "Czechia",
-          "prob": 0.019
+          "prob": 0.0269,
+          "ub_odds": 26.0
         },
         {
           "first": "South Africa",
           "second": "South Korea",
-          "prob": 0.0189
+          "prob": 0.0187,
+          "ub_odds": 41.0
+        },
+        {
+          "first": "South Africa",
+          "second": "Czechia",
+          "prob": 0.0184,
+          "ub_odds": 29.0
         }
       ],
       "matches": [
@@ -119,9 +139,9 @@
           "home": "Mexico",
           "away": "South Africa",
           "date": "2026-06-11T19:00:00Z",
-          "p_home": 0.6683,
-          "p_draw": 0.2177,
-          "p_away": 0.114,
+          "p_home": 0.6742,
+          "p_draw": 0.2172,
+          "p_away": 0.1086,
           "result": null,
           "inplay": false
         },
@@ -129,9 +149,9 @@
           "home": "South Korea",
           "away": "Czechia",
           "date": "2026-06-12T02:00:00Z",
-          "p_home": 0.3575,
-          "p_draw": 0.3085,
-          "p_away": 0.334,
+          "p_home": 0.3624,
+          "p_draw": 0.3167,
+          "p_away": 0.3209,
           "result": null,
           "inplay": false
         },
@@ -182,112 +202,132 @@
         {
           "name": "Switzerland",
           "probs": [
-            0.5278,
-            0.3027,
-            0.1358,
-            0.0337
+            0.5279,
+            0.3032,
+            0.1356,
+            0.0333
           ],
-          "adv_prob": 0.9403,
-          "bf_group_winner_odds": 1.67,
-          "bf_to_qualify_odds": 1.07
+          "adv_prob": 0.941,
+          "bf_group_winner_odds": 1.77,
+          "bf_to_qualify_odds": 1.06,
+          "ub_group_winner_odds": 1.72,
+          "ub_fourth_place_odds": 16.0
         },
         {
           "name": "Canada",
           "probs": [
-            0.3328,
-            0.377,
-            0.216,
-            0.0742
+            0.3335,
+            0.3776,
+            0.2152,
+            0.0737
           ],
-          "adv_prob": 0.8716,
-          "bf_group_winner_odds": 3.05,
-          "bf_to_qualify_odds": 1.16
+          "adv_prob": 0.8725,
+          "bf_group_winner_odds": 3.15,
+          "bf_to_qualify_odds": 1.16,
+          "ub_group_winner_odds": 3.25,
+          "ub_fourth_place_odds": 9.0
         },
         {
           "name": "Bosnia-Herzegovina",
           "probs": [
-            0.1189,
-            0.2458,
-            0.4247,
-            0.2106
+            0.1186,
+            0.2456,
+            0.427,
+            0.2087
           ],
-          "adv_prob": 0.6505,
-          "bf_group_winner_odds": 8.8,
-          "bf_to_qualify_odds": 1.51
+          "adv_prob": 0.6522,
+          "bf_group_winner_odds": 8.6,
+          "bf_to_qualify_odds": 1.46,
+          "ub_group_winner_odds": 5.0,
+          "ub_fourth_place_odds": 4.0
         },
         {
           "name": "Qatar",
           "probs": [
-            0.0205,
-            0.0745,
-            0.2236,
-            0.6814
+            0.02,
+            0.0736,
+            0.2221,
+            0.6843
           ],
-          "adv_prob": 0.2175,
+          "adv_prob": 0.215,
           "bf_group_winner_odds": 60.0,
-          "bf_to_qualify_odds": 4.8
+          "bf_to_qualify_odds": 4.5,
+          "ub_group_winner_odds": 34.0,
+          "ub_fourth_place_odds": 1.4
         }
       ],
       "pairs": [
         {
           "first": "Switzerland",
           "second": "Canada",
-          "prob": 0.3225
+          "prob": 0.3234,
+          "ub_odds": 3.0
         },
         {
           "first": "Canada",
           "second": "Switzerland",
-          "prob": 0.2277
+          "prob": 0.2285,
+          "ub_odds": 4.5
         },
         {
           "first": "Switzerland",
           "second": "Bosnia-Herzegovina",
-          "prob": 0.1585
+          "prob": 0.1582,
+          "ub_odds": 3.75
         },
         {
           "first": "Canada",
           "second": "Bosnia-Herzegovina",
-          "prob": 0.0837
+          "prob": 0.084,
+          "ub_odds": 9.0
         },
         {
           "first": "Bosnia-Herzegovina",
           "second": "Switzerland",
-          "prob": 0.0653
+          "prob": 0.0652,
+          "ub_odds": 6.0
         },
         {
           "first": "Bosnia-Herzegovina",
           "second": "Canada",
-          "prob": 0.0472
+          "prob": 0.047,
+          "ub_odds": 10.0
         },
         {
           "first": "Switzerland",
           "second": "Qatar",
-          "prob": 0.0467
+          "prob": 0.0463,
+          "ub_odds": 15.0
         },
         {
           "first": "Canada",
           "second": "Qatar",
-          "prob": 0.0213
+          "prob": 0.0209,
+          "ub_odds": 41.0
         },
         {
           "first": "Qatar",
           "second": "Switzerland",
-          "prob": 0.0097
+          "prob": 0.0094,
+          "ub_odds": 81.0
         },
         {
           "first": "Qatar",
           "second": "Canada",
-          "prob": 0.0073
+          "prob": 0.0072,
+          "ub_odds": 151.0
         },
         {
           "first": "Bosnia-Herzegovina",
           "second": "Qatar",
-          "prob": 0.0065
+          "prob": 0.0064,
+          "ub_odds": 41.0
         },
         {
           "first": "Qatar",
           "second": "Bosnia-Herzegovina",
-          "prob": 0.0035
+          "prob": 0.0034,
+          "ub_odds": 201.0
         }
       ],
       "matches": [
@@ -295,9 +335,9 @@
           "home": "Canada",
           "away": "Bosnia-Herzegovina",
           "date": "2026-06-12T19:00:00Z",
-          "p_home": 0.5267,
-          "p_draw": 0.2784,
-          "p_away": 0.1949,
+          "p_home": 0.5315,
+          "p_draw": 0.274,
+          "p_away": 0.1945,
           "result": null,
           "inplay": false
         },
@@ -305,9 +345,9 @@
           "home": "Qatar",
           "away": "Switzerland",
           "date": "2026-06-13T19:00:00Z",
-          "p_home": 0.0614,
-          "p_draw": 0.1403,
-          "p_away": 0.7983,
+          "p_home": 0.0606,
+          "p_draw": 0.1385,
+          "p_away": 0.801,
           "result": null,
           "inplay": false
         },
@@ -345,9 +385,9 @@
           "home": "Bosnia-Herzegovina",
           "away": "Qatar",
           "date": "2026-06-24T19:00:00Z",
-          "p_home": 0.5961,
-          "p_draw": 0.2415,
-          "p_away": 0.1624,
+          "p_home": 0.5993,
+          "p_draw": 0.2412,
+          "p_away": 0.1595,
           "result": null,
           "inplay": false
         }
@@ -358,112 +398,132 @@
         {
           "name": "Brazil",
           "probs": [
-            0.6647,
-            0.2381,
-            0.0843,
-            0.0129
+            0.6598,
+            0.2415,
+            0.0856,
+            0.013
           ],
-          "adv_prob": 0.9753,
+          "adv_prob": 0.9749,
           "bf_group_winner_odds": 1.39,
-          "bf_to_qualify_odds": 1.02
+          "bf_to_qualify_odds": 1.02,
+          "ub_group_winner_odds": 1.25,
+          "ub_fourth_place_odds": 51.0
         },
         {
           "name": "Morocco",
           "probs": [
-            0.2138,
-            0.4161,
-            0.2788,
-            0.0913
+            0.2201,
+            0.4174,
+            0.2754,
+            0.0871
           ],
-          "adv_prob": 0.8299,
-          "bf_group_winner_odds": 4.8,
-          "bf_to_qualify_odds": 1.14
+          "adv_prob": 0.8369,
+          "bf_group_winner_odds": 4.7,
+          "bf_to_qualify_odds": 1.14,
+          "ub_group_winner_odds": 4.5,
+          "ub_fourth_place_odds": 21.0
         },
         {
           "name": "Scotland",
           "probs": [
-            0.1102,
-            0.2797,
+            0.1088,
+            0.2759,
             0.4217,
-            0.1884
+            0.1936
           ],
-          "adv_prob": 0.6742,
-          "bf_group_winner_odds": 12.5,
-          "bf_to_qualify_odds": 1.47
+          "adv_prob": 0.6675,
+          "bf_group_winner_odds": 13.0,
+          "bf_to_qualify_odds": 1.48,
+          "ub_group_winner_odds": 13.0,
+          "ub_fourth_place_odds": 7.0
         },
         {
           "name": "Haiti",
           "probs": [
-            0.0113,
-            0.0661,
-            0.2152,
-            0.7075
+            0.0112,
+            0.0652,
+            0.2173,
+            0.7063
           ],
-          "adv_prob": 0.1922,
+          "adv_prob": 0.1927,
           "bf_group_winner_odds": 100.0,
-          "bf_to_qualify_odds": 8.0
+          "bf_to_qualify_odds": 8.0,
+          "ub_group_winner_odds": 101.0,
+          "ub_fourth_place_odds": 1.05
         }
       ],
       "pairs": [
         {
           "first": "Brazil",
           "second": "Morocco",
-          "prob": 0.3798
+          "prob": 0.3807,
+          "ub_odds": 2.1
         },
         {
           "first": "Brazil",
           "second": "Scotland",
-          "prob": 0.2305
+          "prob": 0.2258,
+          "ub_odds": 2.25
         },
         {
           "first": "Morocco",
           "second": "Brazil",
-          "prob": 0.1584
+          "prob": 0.1635,
+          "ub_odds": 8.0
         },
         {
           "first": "Scotland",
           "second": "Brazil",
-          "prob": 0.0734
+          "prob": 0.0719,
+          "ub_odds": 15.0
         },
         {
           "first": "Brazil",
           "second": "Haiti",
-          "prob": 0.0544
+          "prob": 0.0533,
+          "ub_odds": 13.0
         },
         {
           "first": "Morocco",
           "second": "Scotland",
-          "prob": 0.0473
+          "prob": 0.0482,
+          "ub_odds": 34.0
         },
         {
           "first": "Scotland",
           "second": "Morocco",
-          "prob": 0.0332
+          "prob": 0.0335,
+          "ub_odds": 67.0
         },
         {
           "first": "Morocco",
           "second": "Haiti",
-          "prob": 0.0081
+          "prob": 0.0085,
+          "ub_odds": 201.0
         },
         {
           "first": "Haiti",
           "second": "Brazil",
-          "prob": 0.0062
+          "prob": 0.0062,
+          "ub_odds": 126.0
         },
         {
           "first": "Scotland",
           "second": "Haiti",
-          "prob": 0.0036
+          "prob": 0.0034,
+          "ub_odds": 251.0
         },
         {
           "first": "Haiti",
           "second": "Morocco",
-          "prob": 0.0031
+          "prob": 0.0031,
+          "ub_odds": 251.0
         },
         {
           "first": "Haiti",
           "second": "Scotland",
-          "prob": 0.0019
+          "prob": 0.0019,
+          "ub_odds": 501.0
         }
       ],
       "matches": [
@@ -471,9 +531,9 @@
           "home": "Brazil",
           "away": "Morocco",
           "date": "2026-06-13T22:00:00Z",
-          "p_home": 0.5764,
-          "p_draw": 0.2522,
-          "p_away": 0.1714,
+          "p_home": 0.5674,
+          "p_draw": 0.2579,
+          "p_away": 0.1747,
           "result": null,
           "inplay": false
         },
@@ -481,9 +541,9 @@
           "home": "Haiti",
           "away": "Scotland",
           "date": "2026-06-14T01:00:00Z",
-          "p_home": 0.1588,
-          "p_draw": 0.2202,
-          "p_away": 0.621,
+          "p_home": 0.1645,
+          "p_draw": 0.2264,
+          "p_away": 0.6091,
           "result": null,
           "inplay": false
         },
@@ -521,9 +581,9 @@
           "home": "Morocco",
           "away": "Haiti",
           "date": "2026-06-24T22:00:00Z",
-          "p_home": 0.7066,
-          "p_draw": 0.1914,
-          "p_away": 0.1021,
+          "p_home": 0.719,
+          "p_draw": 0.1841,
+          "p_away": 0.0969,
           "result": null,
           "inplay": false
         }
@@ -534,112 +594,132 @@
         {
           "name": "United States",
           "probs": [
-            0.3759,
-            0.286,
-            0.206,
-            0.1322
+            0.3776,
+            0.2876,
+            0.2048,
+            0.13
           ],
-          "adv_prob": 0.815,
-          "bf_group_winner_odds": 2.7,
-          "bf_to_qualify_odds": 1.2
+          "adv_prob": 0.8177,
+          "bf_group_winner_odds": 2.6,
+          "bf_to_qualify_odds": 1.22,
+          "ub_group_winner_odds": 2.5,
+          "ub_fourth_place_odds": 9.0
         },
         {
           "name": "Türkiye",
           "probs": [
-            0.3393,
-            0.291,
-            0.2237,
-            0.1459
+            0.3459,
+            0.293,
+            0.2213,
+            0.1398
           ],
-          "adv_prob": 0.7936,
-          "bf_group_winner_odds": 2.76,
-          "bf_to_qualify_odds": 1.27
+          "adv_prob": 0.8008,
+          "bf_group_winner_odds": 2.86,
+          "bf_to_qualify_odds": 1.26,
+          "ub_group_winner_odds": 2.6,
+          "ub_fourth_place_odds": 5.0
         },
         {
           "name": "Paraguay",
           "probs": [
-            0.1796,
-            0.2454,
-            0.2945,
-            0.2806
+            0.1756,
+            0.2444,
+            0.2972,
+            0.2828
           ],
-          "adv_prob": 0.6228,
-          "bf_group_winner_odds": 5.2,
-          "bf_to_qualify_odds": 1.56
+          "adv_prob": 0.6195,
+          "bf_group_winner_odds": 5.5,
+          "bf_to_qualify_odds": 1.52,
+          "ub_group_winner_odds": 4.75,
+          "ub_fourth_place_odds": 4.0
         },
         {
           "name": "Australia",
           "probs": [
-            0.1052,
-            0.1776,
-            0.2758,
-            0.4414
+            0.101,
+            0.175,
+            0.2767,
+            0.4474
           ],
-          "adv_prob": 0.4588,
-          "bf_group_winner_odds": 9.2,
-          "bf_to_qualify_odds": 2.16
+          "adv_prob": 0.4518,
+          "bf_group_winner_odds": 10.0,
+          "bf_to_qualify_odds": 2.12,
+          "ub_group_winner_odds": 9.0,
+          "ub_fourth_place_odds": 1.85
         }
       ],
       "pairs": [
         {
           "first": "United States",
           "second": "Türkiye",
-          "prob": 0.1791
+          "prob": 0.1826,
+          "ub_odds": 4.0
         },
         {
           "first": "Türkiye",
           "second": "United States",
-          "prob": 0.1693
+          "prob": 0.1746,
+          "ub_odds": 4.5
         },
         {
           "first": "United States",
           "second": "Paraguay",
-          "prob": 0.121
+          "prob": 0.1213,
+          "ub_odds": 5.0
         },
         {
           "first": "Türkiye",
           "second": "Paraguay",
-          "prob": 0.0994
+          "prob": 0.0996,
+          "ub_odds": 9.0
         },
         {
           "first": "United States",
           "second": "Australia",
-          "prob": 0.0757
-        },
-        {
-          "first": "Paraguay",
-          "second": "United States",
-          "prob": 0.0746
+          "prob": 0.0737,
+          "ub_odds": 10.0
         },
         {
           "first": "Paraguay",
           "second": "Türkiye",
-          "prob": 0.0737
+          "prob": 0.0735,
+          "ub_odds": 11.0
+        },
+        {
+          "first": "Paraguay",
+          "second": "United States",
+          "prob": 0.0725,
+          "ub_odds": 8.0
         },
         {
           "first": "Türkiye",
           "second": "Australia",
-          "prob": 0.0707
+          "prob": 0.0717,
+          "ub_odds": 17.0
         },
         {
           "first": "Australia",
           "second": "United States",
-          "prob": 0.0421
+          "prob": 0.0405,
+          "ub_odds": 29.0
         },
         {
           "first": "Australia",
           "second": "Türkiye",
-          "prob": 0.0382
+          "prob": 0.0369,
+          "ub_odds": 67.0
         },
         {
           "first": "Paraguay",
           "second": "Australia",
-          "prob": 0.0312
+          "prob": 0.0296,
+          "ub_odds": 41.0
         },
         {
           "first": "Australia",
           "second": "Paraguay",
-          "prob": 0.025
+          "prob": 0.0236,
+          "ub_odds": 101.0
         }
       ],
       "matches": [
@@ -647,9 +727,9 @@
           "home": "United States",
           "away": "Paraguay",
           "date": "2026-06-13T01:00:00Z",
-          "p_home": 0.4916,
-          "p_draw": 0.2751,
-          "p_away": 0.2333,
+          "p_home": 0.501,
+          "p_draw": 0.2731,
+          "p_away": 0.2259,
           "result": null,
           "inplay": false
         },
@@ -657,9 +737,9 @@
           "home": "Australia",
           "away": "Türkiye",
           "date": "2026-06-14T04:00:00Z",
-          "p_home": 0.194,
-          "p_draw": 0.2519,
-          "p_away": 0.5542,
+          "p_home": 0.1813,
+          "p_draw": 0.2529,
+          "p_away": 0.5658,
           "result": null,
           "inplay": false
         },
@@ -667,9 +747,9 @@
           "home": "United States",
           "away": "Australia",
           "date": "2026-06-19T19:00:00Z",
-          "p_home": 0.5461,
-          "p_draw": 0.2403,
-          "p_away": 0.2136,
+          "p_home": 0.5475,
+          "p_draw": 0.2395,
+          "p_away": 0.2129,
           "result": null,
           "inplay": false
         },
@@ -687,9 +767,9 @@
           "home": "Türkiye",
           "away": "United States",
           "date": "2026-06-26T02:00:00Z",
-          "p_home": 0.352,
-          "p_draw": 0.2725,
-          "p_away": 0.3755,
+          "p_home": 0.3584,
+          "p_draw": 0.2673,
+          "p_away": 0.3743,
           "result": null,
           "inplay": false
         },
@@ -710,112 +790,132 @@
         {
           "name": "Germany",
           "probs": [
-            0.6109,
-            0.2637,
-            0.1153,
-            0.0101
+            0.6204,
+            0.2591,
+            0.1093,
+            0.0112
           ],
-          "adv_prob": 0.9748,
-          "bf_group_winner_odds": 1.55,
-          "bf_to_qualify_odds": 1.01
+          "adv_prob": 0.9752,
+          "bf_group_winner_odds": 1.51,
+          "bf_to_qualify_odds": 1.01,
+          "ub_group_winner_odds": 1.29,
+          "ub_fourth_place_odds": 101.0
         },
         {
           "name": "Ecuador",
           "probs": [
-            0.2321,
-            0.3834,
-            0.3092,
-            0.0753
+            0.2292,
+            0.3848,
+            0.3075,
+            0.0785
           ],
-          "adv_prob": 0.8522,
-          "bf_group_winner_odds": 4.6,
-          "bf_to_qualify_odds": 1.13
+          "adv_prob": 0.8481,
+          "bf_group_winner_odds": 4.5,
+          "bf_to_qualify_odds": 1.14,
+          "ub_group_winner_odds": 4.5,
+          "ub_fourth_place_odds": 21.0
         },
         {
           "name": "Ivory Coast",
           "probs": [
-            0.1516,
-            0.3162,
-            0.4212,
-            0.111
+            0.1441,
+            0.3171,
+            0.4254,
+            0.1134
           ],
-          "adv_prob": 0.7743,
-          "bf_group_winner_odds": 7.2,
-          "bf_to_qualify_odds": 1.21
+          "adv_prob": 0.7703,
+          "bf_group_winner_odds": 7.4,
+          "bf_to_qualify_odds": 1.19,
+          "ub_group_winner_odds": 7.5,
+          "ub_fourth_place_odds": 11.0
         },
         {
           "name": "Curaçao",
           "probs": [
-            0.0054,
-            0.0368,
-            0.1543,
-            0.8035
+            0.0062,
+            0.039,
+            0.1578,
+            0.797
           ],
-          "adv_prob": 0.1273,
-          "bf_group_winner_odds": 190.0,
-          "bf_to_qualify_odds": 13.0
+          "adv_prob": 0.1329,
+          "bf_group_winner_odds": 200.0,
+          "bf_to_qualify_odds": 14.5,
+          "ub_group_winner_odds": 101.0,
+          "ub_fourth_place_odds": 1.06
         }
       ],
       "pairs": [
         {
           "first": "Germany",
           "second": "Ecuador",
-          "prob": 0.3304
+          "prob": 0.3342,
+          "ub_odds": 2.1
         },
         {
           "first": "Germany",
           "second": "Ivory Coast",
-          "prob": 0.2506
+          "prob": 0.2548,
+          "ub_odds": 2.75
         },
         {
           "first": "Ecuador",
           "second": "Germany",
-          "prob": 0.1635
+          "prob": 0.1636,
+          "ub_odds": 6.0
         },
         {
           "first": "Ivory Coast",
           "second": "Germany",
-          "prob": 0.0975
+          "prob": 0.0924,
+          "ub_odds": 10.0
         },
         {
           "first": "Ecuador",
           "second": "Ivory Coast",
-          "prob": 0.0644
+          "prob": 0.061,
+          "ub_odds": 21.0
         },
         {
           "first": "Ivory Coast",
           "second": "Ecuador",
-          "prob": 0.0514
+          "prob": 0.0488,
+          "ub_odds": 41.0
         },
         {
           "first": "Germany",
           "second": "Curaçao",
-          "prob": 0.0299
+          "prob": 0.0314,
+          "ub_odds": 26.0
         },
         {
           "first": "Ecuador",
           "second": "Curaçao",
-          "prob": 0.0042
-        },
-        {
-          "first": "Ivory Coast",
-          "second": "Curaçao",
-          "prob": 0.0027
+          "prob": 0.0046,
+          "ub_odds": 101.0
         },
         {
           "first": "Curaçao",
           "second": "Germany",
-          "prob": 0.0026
+          "prob": 0.0031,
+          "ub_odds": 151.0
+        },
+        {
+          "first": "Ivory Coast",
+          "second": "Curaçao",
+          "prob": 0.0029,
+          "ub_odds": 151.0
         },
         {
           "first": "Curaçao",
           "second": "Ecuador",
-          "prob": 0.0016
+          "prob": 0.0018,
+          "ub_odds": 501.0
         },
         {
           "first": "Curaçao",
           "second": "Ivory Coast",
-          "prob": 0.0012
+          "prob": 0.0013,
+          "ub_odds": 751.0
         }
       ],
       "matches": [
@@ -823,9 +923,9 @@
           "home": "Germany",
           "away": "Curaçao",
           "date": "2026-06-14T17:00:00Z",
-          "p_home": 0.9239,
-          "p_draw": 0.0588,
-          "p_away": 0.0173,
+          "p_home": 0.9258,
+          "p_draw": 0.0507,
+          "p_away": 0.0235,
           "result": null,
           "inplay": false
         },
@@ -833,9 +933,9 @@
           "home": "Ivory Coast",
           "away": "Ecuador",
           "date": "2026-06-14T23:00:00Z",
-          "p_home": 0.2625,
-          "p_draw": 0.3422,
-          "p_away": 0.3953,
+          "p_home": 0.2621,
+          "p_draw": 0.343,
+          "p_away": 0.3948,
           "result": null,
           "inplay": false
         },
@@ -843,9 +943,9 @@
           "home": "Germany",
           "away": "Ivory Coast",
           "date": "2026-06-20T20:00:00Z",
-          "p_home": 0.6047,
-          "p_draw": 0.2316,
-          "p_away": 0.1637,
+          "p_home": 0.6231,
+          "p_draw": 0.2243,
+          "p_away": 0.1525,
           "result": null,
           "inplay": false
         },
@@ -853,9 +953,9 @@
           "home": "Ecuador",
           "away": "Curaçao",
           "date": "2026-06-21T00:00:00Z",
-          "p_home": 0.778,
-          "p_draw": 0.1325,
-          "p_away": 0.0895,
+          "p_home": 0.7689,
+          "p_draw": 0.1372,
+          "p_away": 0.0939,
           "result": null,
           "inplay": false
         },
@@ -886,112 +986,132 @@
         {
           "name": "Netherlands",
           "probs": [
-            0.4991,
-            0.2707,
-            0.1534,
-            0.0768
+            0.4908,
+            0.2736,
+            0.1566,
+            0.079
           ],
-          "adv_prob": 0.8888,
-          "bf_group_winner_odds": 1.84,
-          "bf_to_qualify_odds": 1.08
+          "adv_prob": 0.8857,
+          "bf_group_winner_odds": 1.86,
+          "bf_to_qualify_odds": 1.08,
+          "ub_group_winner_odds": 1.72,
+          "ub_fourth_place_odds": 10.0
         },
         {
           "name": "Japan",
           "probs": [
-            0.2671,
-            0.3185,
-            0.2539,
-            0.1604
+            0.2751,
+            0.3165,
+            0.2508,
+            0.1576
           ],
-          "adv_prob": 0.7651,
-          "bf_group_winner_odds": 3.6,
-          "bf_to_qualify_odds": 1.27
+          "adv_prob": 0.7694,
+          "bf_group_winner_odds": 3.55,
+          "bf_to_qualify_odds": 1.25,
+          "ub_group_winner_odds": 3.4,
+          "ub_fourth_place_odds": 4.5
         },
         {
           "name": "Sweden",
           "probs": [
-            0.1584,
-            0.2565,
-            0.3229,
-            0.2622
+            0.1599,
+            0.2575,
+            0.3242,
+            0.2584
           ],
-          "adv_prob": 0.6319,
-          "bf_group_winner_odds": 7.4,
-          "bf_to_qualify_odds": 1.61
+          "adv_prob": 0.6356,
+          "bf_group_winner_odds": 7.0,
+          "bf_to_qualify_odds": 1.6,
+          "ub_group_winner_odds": 6.5,
+          "ub_fourth_place_odds": 4.0
         },
         {
           "name": "Tunisia",
           "probs": [
-            0.0754,
-            0.1542,
-            0.2698,
-            0.5006
+            0.0742,
+            0.1524,
+            0.2684,
+            0.505
           ],
-          "adv_prob": 0.3925,
-          "bf_group_winner_odds": 17.5,
-          "bf_to_qualify_odds": 2.72
+          "adv_prob": 0.3882,
+          "bf_group_winner_odds": 18.5,
+          "bf_to_qualify_odds": 2.74,
+          "ub_group_winner_odds": 8.0,
+          "ub_fourth_place_odds": 1.83
         }
       ],
       "pairs": [
         {
           "first": "Netherlands",
           "second": "Japan",
-          "prob": 0.2418
+          "prob": 0.2377,
+          "ub_odds": 3.75
         },
         {
           "first": "Netherlands",
           "second": "Sweden",
-          "prob": 0.1701
+          "prob": 0.1686,
+          "ub_odds": 4.5
         },
         {
           "first": "Japan",
           "second": "Netherlands",
-          "prob": 0.1528
+          "prob": 0.1575,
+          "ub_odds": 6.0
         },
         {
           "first": "Netherlands",
           "second": "Tunisia",
-          "prob": 0.0872
+          "prob": 0.0845,
+          "ub_odds": 10.0
         },
         {
           "first": "Sweden",
           "second": "Netherlands",
-          "prob": 0.0807
+          "prob": 0.0801,
+          "ub_odds": 7.0
         },
         {
           "first": "Japan",
           "second": "Sweden",
-          "prob": 0.0711
+          "prob": 0.0737,
+          "ub_odds": 10.0
         },
         {
           "first": "Sweden",
           "second": "Japan",
-          "prob": 0.0539
+          "prob": 0.0558,
+          "ub_odds": 10.0
         },
         {
           "first": "Japan",
           "second": "Tunisia",
-          "prob": 0.0432
+          "prob": 0.0439,
+          "ub_odds": 29.0
         },
         {
           "first": "Tunisia",
           "second": "Netherlands",
-          "prob": 0.0372
+          "prob": 0.036,
+          "ub_odds": 23.0
         },
         {
           "first": "Sweden",
           "second": "Tunisia",
-          "prob": 0.0238
+          "prob": 0.024,
+          "ub_odds": 34.0
         },
         {
           "first": "Tunisia",
           "second": "Japan",
-          "prob": 0.0228
+          "prob": 0.023,
+          "ub_odds": 51.0
         },
         {
           "first": "Tunisia",
           "second": "Sweden",
-          "prob": 0.0153
+          "prob": 0.0151,
+          "ub_odds": 101.0
         }
       ],
       "matches": [
@@ -999,9 +1119,9 @@
           "home": "Netherlands",
           "away": "Japan",
           "date": "2026-06-14T20:00:00Z",
-          "p_home": 0.4868,
-          "p_draw": 0.2661,
-          "p_away": 0.2471,
+          "p_home": 0.4735,
+          "p_draw": 0.2668,
+          "p_away": 0.2597,
           "result": null,
           "inplay": false
         },
@@ -1009,9 +1129,9 @@
           "home": "Sweden",
           "away": "Tunisia",
           "date": "2026-06-15T02:00:00Z",
-          "p_home": 0.5015,
-          "p_draw": 0.275,
-          "p_away": 0.2235,
+          "p_home": 0.5063,
+          "p_draw": 0.2777,
+          "p_away": 0.216,
           "result": null,
           "inplay": false
         },
@@ -1062,112 +1182,132 @@
         {
           "name": "Belgium",
           "probs": [
-            0.6463,
-            0.2275,
-            0.0934,
-            0.0328
+            0.6504,
+            0.2262,
+            0.0918,
+            0.0315
           ],
-          "adv_prob": 0.9502,
-          "bf_group_winner_odds": 1.47,
-          "bf_to_qualify_odds": 1.04
+          "adv_prob": 0.9519,
+          "bf_group_winner_odds": 1.48,
+          "bf_to_qualify_odds": 1.04,
+          "ub_group_winner_odds": 1.35,
+          "ub_fourth_place_odds": 41.0
         },
         {
           "name": "Egypt",
           "probs": [
-            0.1909,
-            0.3551,
-            0.2854,
-            0.1685
+            0.1891,
+            0.3561,
+            0.286,
+            0.1687
           ],
-          "adv_prob": 0.7373,
-          "bf_group_winner_odds": 5.9,
-          "bf_to_qualify_odds": 1.32
+          "adv_prob": 0.7369,
+          "bf_group_winner_odds": 5.8,
+          "bf_to_qualify_odds": 1.33,
+          "ub_group_winner_odds": 5.5,
+          "ub_fourth_place_odds": 7.0
         },
         {
           "name": "Iran",
           "probs": [
-            0.1165,
-            0.2812,
-            0.3535,
-            0.2488
+            0.1156,
+            0.2816,
+            0.3537,
+            0.2491
           ],
-          "adv_prob": 0.6267,
-          "bf_group_winner_odds": 8.0,
-          "bf_to_qualify_odds": 1.58
+          "adv_prob": 0.6262,
+          "bf_group_winner_odds": 8.2,
+          "bf_to_qualify_odds": 1.6,
+          "ub_group_winner_odds": 7.0,
+          "ub_fourth_place_odds": 4.25
         },
         {
           "name": "New Zealand",
           "probs": [
-            0.0463,
-            0.1362,
-            0.2676,
-            0.5498
+            0.0448,
+            0.136,
+            0.2685,
+            0.5507
           ],
-          "adv_prob": 0.3345,
+          "adv_prob": 0.333,
           "bf_group_winner_odds": 28.0,
-          "bf_to_qualify_odds": 2.98
+          "bf_to_qualify_odds": 2.98,
+          "ub_group_winner_odds": 26.0,
+          "ub_fourth_place_odds": 1.4
         }
       ],
       "pairs": [
         {
           "first": "Belgium",
           "second": "Egypt",
-          "prob": 0.3107
+          "prob": 0.3127,
+          "ub_odds": 2.5
         },
         {
           "first": "Belgium",
           "second": "Iran",
-          "prob": 0.233
+          "prob": 0.2341,
+          "ub_odds": 3.0
         },
         {
           "first": "Egypt",
           "second": "Belgium",
-          "prob": 0.1294
+          "prob": 0.129,
+          "ub_odds": 8.0
         },
         {
           "first": "Belgium",
           "second": "New Zealand",
-          "prob": 0.1026
+          "prob": 0.1036,
+          "ub_odds": 8.0
         },
         {
           "first": "Iran",
           "second": "Belgium",
-          "prob": 0.071
+          "prob": 0.0711,
+          "ub_odds": 11.0
         },
         {
           "first": "Egypt",
           "second": "Iran",
-          "prob": 0.0404
+          "prob": 0.0399,
+          "ub_odds": 21.0
         },
         {
           "first": "Iran",
           "second": "Egypt",
-          "prob": 0.0329
+          "prob": 0.0324,
+          "ub_odds": 26.0
         },
         {
           "first": "New Zealand",
           "second": "Belgium",
-          "prob": 0.027
+          "prob": 0.0262,
+          "ub_odds": 34.0
         },
         {
           "first": "Egypt",
           "second": "New Zealand",
-          "prob": 0.021
+          "prob": 0.0202,
+          "ub_odds": 41.0
         },
         {
           "first": "Iran",
           "second": "New Zealand",
-          "prob": 0.0126
+          "prob": 0.0121,
+          "ub_odds": 51.0
         },
         {
           "first": "New Zealand",
           "second": "Egypt",
-          "prob": 0.0115
+          "prob": 0.0111,
+          "ub_odds": 101.0
         },
         {
           "first": "New Zealand",
           "second": "Iran",
-          "prob": 0.0078
+          "prob": 0.0075,
+          "ub_odds": 201.0
         }
       ],
       "matches": [
@@ -1175,9 +1315,9 @@
           "home": "Belgium",
           "away": "Egypt",
           "date": "2026-06-15T19:00:00Z",
-          "p_home": 0.5807,
-          "p_draw": 0.2461,
-          "p_away": 0.1732,
+          "p_home": 0.5858,
+          "p_draw": 0.2416,
+          "p_away": 0.1726,
           "result": null,
           "inplay": false
         },
@@ -1185,9 +1325,9 @@
           "home": "Iran",
           "away": "New Zealand",
           "date": "2026-06-16T01:00:00Z",
-          "p_home": 0.5269,
-          "p_draw": 0.2701,
-          "p_away": 0.203,
+          "p_home": 0.5251,
+          "p_draw": 0.2706,
+          "p_away": 0.2043,
           "result": null,
           "inplay": false
         },
@@ -1215,9 +1355,9 @@
           "home": "New Zealand",
           "away": "Belgium",
           "date": "2026-06-27T03:00:00Z",
-          "p_home": 0.1023,
-          "p_draw": 0.1696,
-          "p_away": 0.7281,
+          "p_home": 0.0967,
+          "p_draw": 0.1707,
+          "p_away": 0.7326,
           "result": null,
           "inplay": false
         },
@@ -1238,112 +1378,132 @@
         {
           "name": "Spain",
           "probs": [
-            0.7357,
-            0.2222,
-            0.0362,
-            0.0059
+            0.744,
+            0.219,
+            0.0322,
+            0.0049
           ],
-          "adv_prob": 0.9892,
+          "adv_prob": 0.991,
           "bf_group_winner_odds": 1.27,
-          "bf_to_qualify_odds": 1.01
+          "bf_to_qualify_odds": 1.01,
+          "ub_group_winner_odds": 1.2,
+          "ub_fourth_place_odds": 101.0
         },
         {
           "name": "Uruguay",
           "probs": [
-            0.2259,
-            0.5193,
-            0.1878,
-            0.0671
+            0.2215,
+            0.5216,
+            0.189,
+            0.068
           ],
-          "adv_prob": 0.8747,
-          "bf_group_winner_odds": 5.0,
-          "bf_to_qualify_odds": 1.15
+          "adv_prob": 0.8731,
+          "bf_group_winner_odds": 5.1,
+          "bf_to_qualify_odds": 1.15,
+          "ub_group_winner_odds": 5.0,
+          "ub_fourth_place_odds": 17.0
         },
         {
           "name": "Cape Verde",
           "probs": [
-            0.0199,
-            0.1321,
-            0.3899,
-            0.4581
+            0.0185,
+            0.134,
+            0.3981,
+            0.4495
           ],
-          "adv_prob": 0.3651,
-          "bf_group_winner_odds": 65.0,
-          "bf_to_qualify_odds": 3.1
+          "adv_prob": 0.3699,
+          "bf_group_winner_odds": 50.0,
+          "bf_to_qualify_odds": 3.1,
+          "ub_group_winner_odds": 51.0,
+          "ub_fourth_place_odds": 1.57
         },
         {
           "name": "Saudi Arabia",
           "probs": [
-            0.0185,
-            0.1264,
-            0.3861,
-            0.469
+            0.0161,
+            0.1255,
+            0.3808,
+            0.4777
           ],
-          "adv_prob": 0.3547,
-          "bf_group_winner_odds": 60.0,
-          "bf_to_qualify_odds": 2.82
+          "adv_prob": 0.3459,
+          "bf_group_winner_odds": 65.0,
+          "bf_to_qualify_odds": 2.74,
+          "ub_group_winner_odds": 17.0,
+          "ub_fourth_place_odds": 2.25
         }
       ],
       "pairs": [
         {
           "first": "Spain",
           "second": "Uruguay",
-          "prob": 0.5072
+          "prob": 0.5107,
+          "ub_odds": 1.75
         },
         {
           "first": "Uruguay",
           "second": "Spain",
-          "prob": 0.1979
+          "prob": 0.197,
+          "ub_odds": 6.0
         },
         {
           "first": "Spain",
           "second": "Cape Verde",
-          "prob": 0.1168
+          "prob": 0.1202,
+          "ub_odds": 8.0
         },
         {
           "first": "Spain",
           "second": "Saudi Arabia",
-          "prob": 0.1116
+          "prob": 0.1131,
+          "ub_odds": 4.25
         },
         {
           "first": "Uruguay",
           "second": "Cape Verde",
-          "prob": 0.0143
+          "prob": 0.013,
+          "ub_odds": 81.0
+        },
+        {
+          "first": "Cape Verde",
+          "second": "Spain",
+          "prob": 0.0118,
+          "ub_odds": 67.0
         },
         {
           "first": "Uruguay",
           "second": "Saudi Arabia",
-          "prob": 0.0138
-        },
-        {
-          "first": "Cape Verde",
-          "second": "Spain",
-          "prob": 0.0126
+          "prob": 0.0115,
+          "ub_odds": 34.0
         },
         {
           "first": "Saudi Arabia",
           "second": "Spain",
-          "prob": 0.0117
+          "prob": 0.0102,
+          "ub_odds": 21.0
         },
         {
           "first": "Cape Verde",
           "second": "Uruguay",
-          "prob": 0.0063
+          "prob": 0.0058,
+          "ub_odds": 151.0
         },
         {
           "first": "Saudi Arabia",
           "second": "Uruguay",
-          "prob": 0.0058
+          "prob": 0.0051,
+          "ub_odds": 51.0
         },
         {
           "first": "Cape Verde",
           "second": "Saudi Arabia",
-          "prob": 0.001
+          "prob": 0.0009,
+          "ub_odds": 251.0
         },
         {
           "first": "Saudi Arabia",
           "second": "Cape Verde",
-          "prob": 0.001
+          "prob": 0.0008,
+          "ub_odds": 251.0
         }
       ],
       "matches": [
@@ -1351,9 +1511,9 @@
           "home": "Spain",
           "away": "Cape Verde",
           "date": "2026-06-15T16:00:00Z",
-          "p_home": 0.8738,
-          "p_draw": 0.0902,
-          "p_away": 0.0359,
+          "p_home": 0.8859,
+          "p_draw": 0.081,
+          "p_away": 0.0331,
           "result": null,
           "inplay": false
         },
@@ -1361,9 +1521,9 @@
           "home": "Saudi Arabia",
           "away": "Uruguay",
           "date": "2026-06-15T22:00:00Z",
-          "p_home": 0.1182,
-          "p_draw": 0.2178,
-          "p_away": 0.6639,
+          "p_home": 0.1243,
+          "p_draw": 0.216,
+          "p_away": 0.6597,
           "result": null,
           "inplay": false
         },
@@ -1371,9 +1531,9 @@
           "home": "Spain",
           "away": "Saudi Arabia",
           "date": "2026-06-21T16:00:00Z",
-          "p_home": 0.8728,
-          "p_draw": 0.0933,
-          "p_away": 0.034,
+          "p_home": 0.8917,
+          "p_draw": 0.0797,
+          "p_away": 0.0286,
           "result": null,
           "inplay": false
         },
@@ -1401,9 +1561,9 @@
           "home": "Cape Verde",
           "away": "Saudi Arabia",
           "date": "2026-06-27T00:00:00Z",
-          "p_home": 0.36,
-          "p_draw": 0.2869,
-          "p_away": 0.3531,
+          "p_home": 0.3694,
+          "p_draw": 0.2886,
+          "p_away": 0.342,
           "result": null,
           "inplay": false
         }
@@ -1414,38 +1574,44 @@
         {
           "name": "France",
           "probs": [
-            0.6079,
-            0.2684,
-            0.1056,
-            0.018
+            0.6064,
+            0.2685,
+            0.1068,
+            0.0183
           ],
-          "adv_prob": 0.9653,
+          "adv_prob": 0.9649,
           "bf_group_winner_odds": 1.56,
-          "bf_to_qualify_odds": 1.03
+          "bf_to_qualify_odds": 1.01,
+          "ub_group_winner_odds": 1.4,
+          "ub_fourth_place_odds": 51.0
         },
         {
           "name": "Norway",
           "probs": [
-            0.2582,
-            0.3976,
-            0.2807,
+            0.2581,
+            0.3975,
+            0.281,
             0.0635
           ],
-          "adv_prob": 0.868,
-          "bf_group_winner_odds": 4.1,
-          "bf_to_qualify_odds": 1.15
+          "adv_prob": 0.8682,
+          "bf_group_winner_odds": 4.0,
+          "bf_to_qualify_odds": 1.16,
+          "ub_group_winner_odds": 4.0,
+          "ub_fourth_place_odds": 11.0
         },
         {
           "name": "Senegal",
           "probs": [
-            0.1243,
+            0.126,
             0.2857,
-            0.4245,
-            0.1655
+            0.4232,
+            0.1651
           ],
-          "adv_prob": 0.6992,
-          "bf_group_winner_odds": 8.4,
-          "bf_to_qualify_odds": 1.37
+          "adv_prob": 0.7004,
+          "bf_group_winner_odds": 8.2,
+          "bf_to_qualify_odds": 1.38,
+          "ub_group_winner_odds": 8.0,
+          "ub_fourth_place_odds": 4.5
         },
         {
           "name": "Iraq",
@@ -1453,73 +1619,87 @@
             0.0096,
             0.0483,
             0.1891,
-            0.753
+            0.7531
           ],
-          "adv_prob": 0.1568,
+          "adv_prob": 0.1569,
           "bf_group_winner_odds": 120.0,
-          "bf_to_qualify_odds": 7.0
+          "bf_to_qualify_odds": 6.4,
+          "ub_group_winner_odds": 51.0,
+          "ub_fourth_place_odds": 1.28
         }
       ],
       "pairs": [
         {
           "first": "France",
           "second": "Norway",
-          "prob": 0.3506
+          "prob": 0.3498,
+          "ub_odds": 1.8
         },
         {
           "first": "France",
           "second": "Senegal",
-          "prob": 0.2235
+          "prob": 0.2228,
+          "ub_odds": 3.75
         },
         {
           "first": "Norway",
           "second": "France",
-          "prob": 0.187
+          "prob": 0.1862,
+          "ub_odds": 5.0
         },
         {
           "first": "Senegal",
           "second": "France",
-          "prob": 0.0764
+          "prob": 0.0773,
+          "ub_odds": 15.0
         },
         {
           "first": "Norway",
           "second": "Senegal",
-          "prob": 0.0604
+          "prob": 0.0611,
+          "ub_odds": 19.0
         },
         {
           "first": "Senegal",
           "second": "Norway",
-          "prob": 0.0443
+          "prob": 0.0449,
+          "ub_odds": 29.0
         },
         {
           "first": "France",
           "second": "Iraq",
-          "prob": 0.0338
+          "prob": 0.0338,
+          "ub_odds": 17.0
         },
         {
           "first": "Norway",
           "second": "Iraq",
-          "prob": 0.0108
+          "prob": 0.0108,
+          "ub_odds": 51.0
         },
         {
           "first": "Iraq",
           "second": "France",
-          "prob": 0.0051
+          "prob": 0.005,
+          "ub_odds": 151.0
         },
         {
           "first": "Senegal",
           "second": "Iraq",
-          "prob": 0.0037
+          "prob": 0.0037,
+          "ub_odds": 201.0
         },
         {
           "first": "Iraq",
           "second": "Norway",
-          "prob": 0.0028
+          "prob": 0.0028,
+          "ub_odds": 201.0
         },
         {
           "first": "Iraq",
           "second": "Senegal",
-          "prob": 0.0017
+          "prob": 0.0018,
+          "ub_odds": 251.0
         }
       ],
       "matches": [
@@ -1527,9 +1707,9 @@
           "home": "France",
           "away": "Senegal",
           "date": "2026-06-16T19:00:00Z",
-          "p_home": 0.6455,
-          "p_draw": 0.2236,
-          "p_away": 0.1308,
+          "p_home": 0.6457,
+          "p_draw": 0.2186,
+          "p_away": 0.1357,
           "result": null,
           "inplay": false
         },
@@ -1590,112 +1770,132 @@
         {
           "name": "Argentina",
           "probs": [
-            0.6471,
-            0.2426,
-            0.0888,
-            0.0215
+            0.6446,
+            0.2435,
+            0.0901,
+            0.0218
           ],
-          "adv_prob": 0.9636,
+          "adv_prob": 0.9631,
           "bf_group_winner_odds": 1.39,
-          "bf_to_qualify_odds": 1.02
+          "bf_to_qualify_odds": 1.02,
+          "ub_group_winner_odds": 1.33,
+          "ub_fourth_place_odds": 51.0
         },
         {
           "name": "Austria",
           "probs": [
-            0.2249,
-            0.3992,
-            0.2868,
-            0.0892
+            0.2244,
+            0.3969,
+            0.2869,
+            0.0919
           ],
-          "adv_prob": 0.8343,
-          "bf_group_winner_odds": 5.1,
-          "bf_to_qualify_odds": 1.19
+          "adv_prob": 0.8319,
+          "bf_group_winner_odds": 5.0,
+          "bf_to_qualify_odds": 1.19,
+          "ub_group_winner_odds": 5.0,
+          "ub_fourth_place_odds": 8.0
         },
         {
           "name": "Algeria",
           "probs": [
-            0.111,
+            0.1134,
             0.2899,
-            0.4137,
-            0.1854
+            0.4114,
+            0.1853
           ],
-          "adv_prob": 0.6803,
-          "bf_group_winner_odds": 11.0,
-          "bf_to_qualify_odds": 1.44
+          "adv_prob": 0.6818,
+          "bf_group_winner_odds": 12.5,
+          "bf_to_qualify_odds": 1.38,
+          "ub_group_winner_odds": 6.5,
+          "ub_fourth_place_odds": 6.0
         },
         {
           "name": "Jordan",
           "probs": [
-            0.017,
-            0.0683,
-            0.2107,
-            0.704
+            0.0176,
+            0.0697,
+            0.2117,
+            0.701
           ],
-          "adv_prob": 0.1988,
-          "bf_group_winner_odds": 85.0,
-          "bf_to_qualify_odds": 5.0
+          "adv_prob": 0.2021,
+          "bf_group_winner_odds": 90.0,
+          "bf_to_qualify_odds": 4.7,
+          "ub_group_winner_odds": 41.0,
+          "ub_fourth_place_odds": 1.25
         }
       ],
       "pairs": [
         {
           "first": "Argentina",
           "second": "Austria",
-          "prob": 0.3587
+          "prob": 0.3557,
+          "ub_odds": 2.1
         },
         {
           "first": "Argentina",
           "second": "Algeria",
-          "prob": 0.2397
+          "prob": 0.239,
+          "ub_odds": 3.25
         },
         {
           "first": "Austria",
           "second": "Argentina",
-          "prob": 0.1634
+          "prob": 0.1624,
+          "ub_odds": 4.75
         },
         {
           "first": "Algeria",
           "second": "Argentina",
-          "prob": 0.0693
+          "prob": 0.0709,
+          "ub_odds": 13.0
         },
         {
           "first": "Argentina",
           "second": "Jordan",
-          "prob": 0.0487
+          "prob": 0.0499,
+          "ub_odds": 17.0
         },
         {
           "first": "Austria",
           "second": "Algeria",
-          "prob": 0.0475
+          "prob": 0.048,
+          "ub_odds": 19.0
         },
         {
           "first": "Algeria",
           "second": "Austria",
-          "prob": 0.0361
+          "prob": 0.0367,
+          "ub_odds": 23.0
         },
         {
           "first": "Austria",
           "second": "Jordan",
-          "prob": 0.014
+          "prob": 0.014,
+          "ub_odds": 101.0
         },
         {
           "first": "Jordan",
           "second": "Argentina",
-          "prob": 0.0099
+          "prob": 0.0101,
+          "ub_odds": 151.0
         },
         {
           "first": "Algeria",
           "second": "Jordan",
-          "prob": 0.0056
+          "prob": 0.0058,
+          "ub_odds": 201.0
         },
         {
           "first": "Jordan",
           "second": "Austria",
-          "prob": 0.0044
+          "prob": 0.0046,
+          "ub_odds": 251.0
         },
         {
           "first": "Jordan",
           "second": "Algeria",
-          "prob": 0.0027
+          "prob": 0.0029,
+          "ub_odds": 251.0
         }
       ],
       "matches": [
@@ -1703,9 +1903,9 @@
           "home": "Argentina",
           "away": "Algeria",
           "date": "2026-06-17T01:00:00Z",
-          "p_home": 0.6866,
-          "p_draw": 0.2104,
-          "p_away": 0.103,
+          "p_home": 0.6823,
+          "p_draw": 0.2114,
+          "p_away": 0.1063,
           "result": null,
           "inplay": false
         },
@@ -1713,9 +1913,9 @@
           "home": "Austria",
           "away": "Jordan",
           "date": "2026-06-17T04:00:00Z",
-          "p_home": 0.745,
-          "p_draw": 0.167,
-          "p_away": 0.088,
+          "p_home": 0.7389,
+          "p_draw": 0.1682,
+          "p_away": 0.0929,
           "result": null,
           "inplay": false
         },
@@ -1723,9 +1923,9 @@
           "home": "Argentina",
           "away": "Austria",
           "date": "2026-06-22T17:00:00Z",
-          "p_home": 0.5731,
-          "p_draw": 0.2439,
-          "p_away": 0.183,
+          "p_home": 0.5666,
+          "p_draw": 0.2538,
+          "p_away": 0.1796,
           "result": null,
           "inplay": false
         },
@@ -1766,112 +1966,132 @@
         {
           "name": "Portugal",
           "probs": [
-            0.5641,
-            0.3049,
-            0.1006,
-            0.0304
+            0.5614,
+            0.305,
+            0.1022,
+            0.0313
           ],
-          "adv_prob": 0.9502,
+          "adv_prob": 0.9489,
           "bf_group_winner_odds": 1.62,
-          "bf_to_qualify_odds": 1.04
+          "bf_to_qualify_odds": 1.03,
+          "ub_group_winner_odds": 1.5,
+          "ub_fourth_place_odds": 41.0
         },
         {
           "name": "Colombia",
           "probs": [
-            0.3498,
-            0.4217,
-            0.1687,
-            0.0598
+            0.3505,
+            0.4196,
+            0.1693,
+            0.0605
           ],
-          "adv_prob": 0.8961,
-          "bf_group_winner_odds": 3.0,
-          "bf_to_qualify_odds": 1.12
+          "adv_prob": 0.8955,
+          "bf_group_winner_odds": 3.05,
+          "bf_to_qualify_odds": 1.12,
+          "ub_group_winner_odds": 3.0,
+          "ub_fourth_place_odds": 10.0
         },
         {
           "name": "DR Congo",
           "probs": [
-            0.0468,
-            0.1506,
-            0.393,
-            0.4096
+            0.0481,
+            0.152,
+            0.392,
+            0.408
           ],
-          "adv_prob": 0.4318,
-          "bf_group_winner_odds": 24.0,
-          "bf_to_qualify_odds": 2.26
+          "adv_prob": 0.4346,
+          "bf_group_winner_odds": 29.0,
+          "bf_to_qualify_odds": 2.24,
+          "ub_group_winner_odds": 12.0,
+          "ub_fourth_place_odds": 2.4
         },
         {
           "name": "Uzbekistan",
           "probs": [
-            0.0394,
-            0.1228,
-            0.3377,
+            0.0399,
+            0.1234,
+            0.3364,
             0.5002
           ],
-          "adv_prob": 0.3553,
-          "bf_group_winner_odds": 36.0,
-          "bf_to_qualify_odds": 2.98
+          "adv_prob": 0.3567,
+          "bf_group_winner_odds": 29.0,
+          "bf_to_qualify_odds": 2.94,
+          "ub_group_winner_odds": 31.0,
+          "ub_fourth_place_odds": 1.75
         }
       ],
       "pairs": [
         {
           "first": "Portugal",
           "second": "Colombia",
-          "prob": 0.3881
+          "prob": 0.3853,
+          "ub_odds": 1.72
         },
         {
           "first": "Colombia",
           "second": "Portugal",
-          "prob": 0.2598
+          "prob": 0.2589,
+          "ub_odds": 3.5
         },
         {
           "first": "Portugal",
           "second": "DR Congo",
-          "prob": 0.1011
+          "prob": 0.1009,
+          "ub_odds": 6.0
         },
         {
           "first": "Portugal",
           "second": "Uzbekistan",
-          "prob": 0.0749
+          "prob": 0.0752,
+          "ub_odds": 15.0
         },
         {
           "first": "Colombia",
           "second": "DR Congo",
-          "prob": 0.046
+          "prob": 0.0475,
+          "ub_odds": 26.0
         },
         {
           "first": "Colombia",
           "second": "Uzbekistan",
-          "prob": 0.044
+          "prob": 0.0442,
+          "ub_odds": 51.0
         },
         {
           "first": "DR Congo",
           "second": "Portugal",
-          "prob": 0.0242
+          "prob": 0.0249,
+          "ub_odds": 29.0
         },
         {
           "first": "Uzbekistan",
           "second": "Portugal",
-          "prob": 0.021
+          "prob": 0.0212,
+          "ub_odds": 101.0
         },
         {
           "first": "DR Congo",
           "second": "Colombia",
-          "prob": 0.0186
+          "prob": 0.0191,
+          "ub_odds": 51.0
         },
         {
           "first": "Uzbekistan",
           "second": "Colombia",
-          "prob": 0.0149
+          "prob": 0.0151,
+          "ub_odds": 201.0
         },
         {
           "first": "DR Congo",
           "second": "Uzbekistan",
-          "prob": 0.0039
+          "prob": 0.0041,
+          "ub_odds": 401.0
         },
         {
           "first": "Uzbekistan",
           "second": "DR Congo",
-          "prob": 0.0035
+          "prob": 0.0036,
+          "ub_odds": 501.0
         }
       ],
       "matches": [
@@ -1879,9 +2099,9 @@
           "home": "Portugal",
           "away": "DR Congo",
           "date": "2026-06-17T17:00:00Z",
-          "p_home": 0.7561,
-          "p_draw": 0.1626,
-          "p_away": 0.0813,
+          "p_home": 0.7478,
+          "p_draw": 0.1676,
+          "p_away": 0.0845,
           "result": null,
           "inplay": false
         },
@@ -1889,9 +2109,9 @@
           "home": "Uzbekistan",
           "away": "Colombia",
           "date": "2026-06-18T02:00:00Z",
-          "p_home": 0.102,
-          "p_draw": 0.2061,
-          "p_away": 0.6919,
+          "p_home": 0.1049,
+          "p_draw": 0.2033,
+          "p_away": 0.6918,
           "result": null,
           "inplay": false
         },
@@ -1942,112 +2162,132 @@
         {
           "name": "England",
           "probs": [
-            0.6214,
-            0.2485,
-            0.0968,
-            0.0333
+            0.6199,
+            0.2484,
+            0.0978,
+            0.0339
           ],
-          "adv_prob": 0.9489,
-          "bf_group_winner_odds": 1.43,
-          "bf_to_qualify_odds": 1.04
+          "adv_prob": 0.9481,
+          "bf_group_winner_odds": 1.42,
+          "bf_to_qualify_odds": 1.02,
+          "ub_group_winner_odds": 1.3,
+          "ub_fourth_place_odds": 51.0
         },
         {
           "name": "Croatia",
           "probs": [
-            0.2532,
-            0.4084,
-            0.2277,
-            0.1107
+            0.2552,
+            0.4118,
+            0.2248,
+            0.1082
           ],
-          "adv_prob": 0.8231,
+          "adv_prob": 0.8269,
           "bf_group_winner_odds": 4.4,
-          "bf_to_qualify_odds": 1.2
+          "bf_to_qualify_odds": 1.2,
+          "ub_group_winner_odds": 4.25,
+          "ub_fourth_place_odds": 8.0
         },
         {
           "name": "Ghana",
           "probs": [
-            0.0764,
-            0.2014,
-            0.3785,
-            0.3437
+            0.074,
+            0.1939,
+            0.3729,
+            0.3592
           ],
-          "adv_prob": 0.5154,
+          "adv_prob": 0.5003,
           "bf_group_winner_odds": 16.0,
-          "bf_to_qualify_odds": 1.93
+          "bf_to_qualify_odds": 1.97,
+          "ub_group_winner_odds": 12.0,
+          "ub_fourth_place_odds": 3.0
         },
         {
           "name": "Panama",
           "probs": [
-            0.049,
-            0.1417,
-            0.2969,
-            0.5123
+            0.0508,
+            0.1459,
+            0.3046,
+            0.4987
           ],
-          "adv_prob": 0.3623,
-          "bf_group_winner_odds": 36.0,
-          "bf_to_qualify_odds": 2.96
+          "adv_prob": 0.3742,
+          "bf_group_winner_odds": 38.0,
+          "bf_to_qualify_odds": 2.9,
+          "ub_group_winner_odds": 51.0,
+          "ub_fourth_place_odds": 1.5
         }
       ],
       "pairs": [
         {
           "first": "England",
           "second": "Croatia",
-          "prob": 0.3696
+          "prob": 0.3733,
+          "ub_odds": 1.8
         },
         {
           "first": "Croatia",
           "second": "England",
-          "prob": 0.1759
+          "prob": 0.1761,
+          "ub_odds": 5.0
         },
         {
           "first": "England",
           "second": "Ghana",
-          "prob": 0.1499
+          "prob": 0.1418,
+          "ub_odds": 4.0
         },
         {
           "first": "England",
           "second": "Panama",
-          "prob": 0.1019
+          "prob": 0.1049,
+          "ub_odds": 15.0
         },
         {
           "first": "Croatia",
           "second": "Ghana",
-          "prob": 0.0454
+          "prob": 0.0459,
+          "ub_odds": 29.0
         },
         {
           "first": "Ghana",
           "second": "England",
-          "prob": 0.0445
+          "prob": 0.0433,
+          "ub_odds": 15.0
         },
         {
           "first": "Croatia",
           "second": "Panama",
-          "prob": 0.0319
+          "prob": 0.0333,
+          "ub_odds": 67.0
         },
         {
           "first": "Panama",
           "second": "England",
-          "prob": 0.0281
+          "prob": 0.029,
+          "ub_odds": 67.0
         },
         {
           "first": "Ghana",
           "second": "Croatia",
-          "prob": 0.0239
+          "prob": 0.023,
+          "ub_odds": 51.0
         },
         {
           "first": "Panama",
           "second": "Croatia",
-          "prob": 0.0149
+          "prob": 0.0155,
+          "ub_odds": 201.0
         },
         {
           "first": "Ghana",
           "second": "Panama",
-          "prob": 0.008
+          "prob": 0.0077,
+          "ub_odds": 251.0
         },
         {
           "first": "Panama",
           "second": "Ghana",
-          "prob": 0.006
+          "prob": 0.0062,
+          "ub_odds": 501.0
         }
       ],
       "matches": [
@@ -2055,9 +2295,9 @@
           "home": "England",
           "away": "Croatia",
           "date": "2026-06-17T20:00:00Z",
-          "p_home": 0.5534,
-          "p_draw": 0.2509,
-          "p_away": 0.1957,
+          "p_home": 0.5579,
+          "p_draw": 0.2475,
+          "p_away": 0.1946,
           "result": null,
           "inplay": false
         },
@@ -2065,9 +2305,9 @@
           "home": "Ghana",
           "away": "Panama",
           "date": "2026-06-17T23:00:00Z",
-          "p_home": 0.4634,
-          "p_draw": 0.272,
-          "p_away": 0.2646,
+          "p_home": 0.4439,
+          "p_draw": 0.2757,
+          "p_away": 0.2805,
           "result": null,
           "inplay": false
         },
@@ -2075,9 +2315,9 @@
           "home": "England",
           "away": "Ghana",
           "date": "2026-06-23T20:00:00Z",
-          "p_home": 0.7094,
-          "p_draw": 0.1753,
-          "p_away": 0.1153,
+          "p_home": 0.7009,
+          "p_draw": 0.1794,
+          "p_away": 0.1196,
           "result": null,
           "inplay": false
         },
@@ -2105,9 +2345,9 @@
           "home": "Croatia",
           "away": "Ghana",
           "date": "2026-06-27T21:00:00Z",
-          "p_home": 0.5747,
-          "p_draw": 0.2485,
-          "p_away": 0.1768,
+          "p_home": 0.5849,
+          "p_draw": 0.2482,
+          "p_away": 0.167,
           "result": null,
           "inplay": false
         }

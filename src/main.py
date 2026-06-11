@@ -17,6 +17,7 @@ from results_fetcher import fetch_results
 from simulator import simulate_group
 from qualification import compute_advancement_probs
 from betfair_fetcher import fetch_betfair, load_betfair_cache, get_inplay_matches
+from unibet_scraper import load_unibet_cache
 
 _RESULT_LABEL = {
     (1.0, 0.0, 0.0): 'Home win',
@@ -96,6 +97,8 @@ def write_json(all_sim_results, adv_probs, match_odds, match_results, betfair_da
 
     schedule = load_schedule()
 
+    unibet_data = load_unibet_cache()
+
     groups_data = {}
     for group_name in sorted(all_sim_results.keys()):
         teams      = GROUPS[group_name]
@@ -105,20 +108,31 @@ def write_json(all_sim_results, adv_probs, match_odds, match_results, betfair_da
 
         gw = betfair_data["group_winner"].get(group_name, {})
         tq = betfair_data["to_qualify"].get(group_name, {})
+        ub_gw = unibet_data["group_winner"].get(group_name, {})
+        ub_fp = unibet_data["fourth_place"].get(group_name, {})
+        ub_pairs = unibet_data["pairs"].get(group_name, {})
 
         teams_list = [
             {
                 'name':     t,
                 'probs':    [round(p, 4) for p in positions[t]],
                 'adv_prob': round(adv_probs.get(t, 0.0), 4),
-                'bf_group_winner_odds': round(gw[t], 4) if gw.get(t) else None,
-                'bf_to_qualify_odds':   round(tq[t], 4) if tq.get(t) else None,
+                'bf_group_winner_odds':  round(gw[t], 4)    if gw.get(t)    else None,
+                'bf_to_qualify_odds':    round(tq[t], 4)    if tq.get(t)    else None,
+                'ub_group_winner_odds':  round(ub_gw[t], 4) if ub_gw.get(t) else None,
+                'ub_fourth_place_odds':  round(ub_fp[t], 4) if ub_fp.get(t) else None,
             }
             for t in sorted(teams, key=lambda t: -positions[t][0])
         ]
 
         pairs_list = [
-            {'first': first, 'second': second, 'prob': round(p, 4)}
+            {
+                'first':   first,
+                'second':  second,
+                'prob':    round(p, 4),
+                'ub_odds': round(ub_pairs[f"{first}|{second}"], 4)
+                           if ub_pairs.get(f"{first}|{second}") else None,
+            }
             for (first, second), p in sorted(pair_probs.items(), key=lambda x: -x[1])
         ]
 
@@ -166,6 +180,12 @@ def write_json(all_sim_results, adv_probs, match_odds, match_results, betfair_da
     if bf_src.exists():
         shutil.copy2(bf_src, bf_dst)
         print("  Betfair cache copied → docs/data/betfair_cache.json")
+
+    ub_src = Path(__file__).parent.parent / 'unibet_cache.json'
+    ub_dst = Path(__file__).parent.parent / 'docs' / 'data' / 'unibet_cache.json'
+    if ub_src.exists():
+        shutil.copy2(ub_src, ub_dst)
+        print("  Unibet cache copied → docs/data/unibet_cache.json")
 
 
 def main():

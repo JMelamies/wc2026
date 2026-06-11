@@ -88,6 +88,54 @@ function applyFlags() {
     span.textContent = fmtBf(bfOdds);
     cell.appendChild(span);
   });
+
+  // Unibet: group winner (1st cells)
+  document.querySelectorAll('[data-ub-gw]').forEach(cell => {
+    const ubOdds = parseFloat(cell.dataset.ubGw);
+    const prob   = parseFloat(cell.dataset.prob);
+    cell.classList.remove('cell-ub-flag');
+    const existing = cell.querySelector('.ub-odds');
+    if (existing) existing.remove();
+    if (!ubOdds || isNaN(ubOdds)) return;
+    if (!flagLevel(ubOdds, prob)) return;
+    cell.classList.add('cell-ub-flag');
+    const span = document.createElement('span');
+    span.className   = 'ub-odds';
+    span.textContent = fmtBf(ubOdds);
+    cell.appendChild(span);
+  });
+
+  // Unibet: 4th place cells
+  document.querySelectorAll('[data-ub-fp]').forEach(cell => {
+    const ubOdds = parseFloat(cell.dataset.ubFp);
+    const prob   = parseFloat(cell.dataset.prob);
+    cell.classList.remove('cell-ub-flag');
+    const existing = cell.querySelector('.ub-odds');
+    if (existing) existing.remove();
+    if (!ubOdds || isNaN(ubOdds)) return;
+    if (!flagLevel(ubOdds, prob)) return;
+    cell.classList.add('cell-ub-flag');
+    const span = document.createElement('span');
+    span.className   = 'ub-odds';
+    span.textContent = fmtBf(ubOdds);
+    cell.appendChild(span);
+  });
+
+  // Unibet: pair odds cells
+  document.querySelectorAll('[data-ub-pair]').forEach(cell => {
+    const ubOdds = parseFloat(cell.dataset.ubPair);
+    const prob   = parseFloat(cell.dataset.prob);
+    cell.classList.remove('cell-ub-flag');
+    const existing = cell.querySelector('.ub-odds');
+    if (existing) existing.remove();
+    if (!ubOdds || isNaN(ubOdds)) return;
+    if (!flagLevel(ubOdds, prob)) return;
+    cell.classList.add('cell-ub-flag');
+    const span = document.createElement('span');
+    span.className   = 'ub-odds';
+    span.textContent = fmtBf(ubOdds);
+    cell.appendChild(span);
+  });
 }
 
 // --- rendering ---
@@ -101,7 +149,10 @@ function renderGroup(name, group) {
   const rows = group.teams.map(team => {
     const posCells = team.probs.map((p, pos) => {
       if (pos === 0) {
-        return `<td class="num" style="${cellStyle(p, pos)}" data-bf-gw="${team.bf_group_winner_odds || ''}" data-prob="${p}">${fmt(p)}</td>`;
+        return `<td class="num" style="${cellStyle(p, pos)}" data-bf-gw="${team.bf_group_winner_odds || ''}" data-ub-gw="${team.ub_group_winner_odds || ''}" data-prob="${p}">${fmt(p)}</td>`;
+      }
+      if (pos === 3) {
+        return `<td class="num" style="${cellStyle(p, pos)}" data-ub-fp="${team.ub_fourth_place_odds || ''}" data-prob="${p}">${fmt(p)}</td>`;
       }
       return `<td class="num" style="${cellStyle(p, pos)}">${fmt(p)}</td>`;
     }).join('');
@@ -130,6 +181,10 @@ function renderGroup(name, group) {
   // --- pairs panel (conditionally rendered) ---
   const isOpen   = pairsOpen.has(name);
   const btnLabel = isOpen ? '1st/2nd pairs ▾' : '1st/2nd pairs ▸';
+  const hasPairFlag = (group.pairs || []).some(pair =>
+    pair.ub_odds && flagLevel(pair.ub_odds, pair.prob)
+  );
+  const pairFlagDot = hasPairFlag ? ' <span class="pair-flag-dot">check odds</span>' : '';
 
   let pairsHtml = '';
   if (isOpen && group.pairs && group.pairs.length) {
@@ -139,7 +194,7 @@ function renderGroup(name, group) {
       return `<tr>
         <td>${dn(pair.first)}</td>
         <td>${dn(pair.second)}</td>
-        <td class="num" style="${bg}">${fmt(p)}</td>
+        <td class="num" style="${bg}" data-ub-pair="${pair.ub_odds || ''}" data-prob="${p}">${fmt(p)}</td>
       </tr>`;
     }).join('');
 
@@ -160,7 +215,7 @@ function renderGroup(name, group) {
         <tbody>${rows}</tbody>
       </table>
       <ul class="matches">${matchItems}</ul>
-      <button class="pairs-btn" onclick="togglePairs('${name}')">${btnLabel}</button>
+      <button class="pairs-btn" onclick="togglePairs('${name}')">${btnLabel}${pairFlagDot}</button>
       ${pairsHtml}
     </div>`;
 }
@@ -216,7 +271,7 @@ async function init() {
     btn.insertAdjacentElement('afterend', controls);
 
     document.getElementById('flagT').addEventListener('input', e => {
-      flagT = parseFloat(e.target.value) || 0; applyFlags();
+      flagT = parseFloat(e.target.value) || 0; renderGrid();
     });
 
     renderGrid();
