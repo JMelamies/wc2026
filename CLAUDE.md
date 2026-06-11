@@ -48,8 +48,7 @@ wc2026/
 python src/main.py                                  # default: normal mode
 python src/main.py --mode normal                    # Odds API + results
 python src/main.py --mode cached                    # no API calls, load all from cache
-python src/main.py --mode live                      # cached odds + Betfair in-play override
-python src/main.py --mode all                       # Odds API + results + Betfair in-play
+python src/main.py --mode live                      # cached odds + fresh results + Betfair
 python src/main.py --mode betfair-group --group A   # results + Betfair for all Group A matches
 ```
 
@@ -184,13 +183,12 @@ Markets fetched in batches of 40 with `virtualise=False`.
 
 ### Running modes
 
-| Mode | Odds API | Betfair match odds | Betfair winner/qualify |
-|---|---|---|---|
-| `cached` | load cache | — | fetch fresh |
-| `normal` | fetch | — | fetch fresh |
-| `live` | load cache | fetch in-play | fetch fresh |
-| `all` | fetch | fetch in-play | fetch fresh |
-| `betfair-group` | load cache | fetch specified group | fetch fresh all groups |
+| Mode | Odds API | Results | Betfair match odds | Betfair winner/qualify |
+|---|---|---|---|---|
+| `cached` | load cache | load cache | fetch fresh (all) | fetch fresh |
+| `normal` | fetch fresh | fetch fresh | fetch fresh (all) | fetch fresh |
+| `live` | load cache | fetch fresh | fetch fresh (all) | fetch fresh |
+| `betfair-group` | load cache | fetch fresh | fetch fresh (one group) | fetch fresh (all groups) |
 
 ---
 

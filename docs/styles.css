@@ -211,6 +211,71 @@ tr:not(:last-child) td { border-bottom: 1px solid #f4f4f4; }
   }
 }
 
+.flags-wrap {
+  max-width: 1400px;
+  margin: 0 auto 16px;
+  padding: 0 20px;
+}
+
+.flags-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px 18px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.flags-card h2 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.flags-table {
+  font-size: 0.82rem;
+  margin-bottom: 0;
+}
+
+.flags-table th,
+.flags-table td {
+  padding: 4px 8px;
+}
+
+.flags-table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid #f4f4f4;
+}
+
+.src-col   { color: #888; font-size: 0.75em; }
+.flag-edge { font-weight: 600; color: #059669; }
+
+.flags-table th.sortable {
+  cursor: pointer;
+  user-select: none;
+}
+.flags-table th.sortable:hover { color: #333; }
+
+.flags-more-btn {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 6px 0;
+  font-size: 0.78rem;
+  font-family: inherit;
+  background: #f5f7fa;
+  border: 1px solid #dde2ea;
+  border-radius: 6px;
+  color: #555;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.flags-more-btn:hover { background: #e8ecf2; border-color: #bcc4d0; color: #222; }
+
+@media (max-width: 480px) {
+  .flags-wrap { padding: 0 8px; }
+}
+
 .cell-flag    { outline: 2px solid #111; outline-offset: -1px; }
 .cell-ub-flag { outline: 2px solid #111; outline-offset: -1px; }
 .bf-odds  { font-size: 0.7em; opacity: 0.75; margin-left: 3px; vertical-align: super; }

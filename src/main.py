@@ -91,7 +91,7 @@ def print_group(group_name, teams, matches, match_probs, positions, adv_probs):
     return covered
 
 
-def write_json(all_sim_results, adv_probs, match_odds, match_results, betfair_data, inplay_matches):
+def write_json(all_sim_results, adv_probs, match_odds, match_results, betfair_data, inplay_matches, live_scores=None):
     out_path = Path(__file__).parent.parent / 'docs' / 'data' / 'group_rankings.json'
     os.makedirs(out_path.parent, exist_ok=True)
 
@@ -146,15 +146,22 @@ def write_json(all_sim_results, adv_probs, match_odds, match_results, betfair_da
                 home, away, date = team_a, team_b, None
 
             ph, pd, pa = resolve_probs(home, away, match_odds)
+            is_live = (home, away) in inplay_matches or (away, home) in inplay_matches
+            ls = live_scores or {}
+            score = ls.get((home, away)) or (
+                (ls[away, home][1], ls[away, home][0]) if (away, home) in ls else None
+            )
             matches_list.append({
-                'home':   home,
-                'away':   away,
-                'date':   date,
-                'p_home': round(ph, 4),
-                'p_draw': round(pd, 4),
-                'p_away': round(pa, 4),
-                'result': _get_result(home, away, match_results),
-                'inplay': (home, away) in inplay_matches or (away, home) in inplay_matches,
+                'home':        home,
+                'away':        away,
+                'date':        date,
+                'p_home':      round(ph, 4),
+                'p_draw':      round(pd, 4),
+                'p_away':      round(pa, 4),
+                'result':      _get_result(home, away, match_results),
+                'inplay':      is_live,
+                'score_home':  score[0] if score else None,
+                'score_away':  score[1] if score else None,
             })
 
         matches_list.sort(key=lambda m: m['date'] or 'z')
@@ -192,7 +199,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         '--mode',
-        choices=['cached', 'normal', 'live', 'all', 'betfair-group'],
+        choices=['cached', 'normal', 'live', 'betfair-group'],
         default='normal',
     )
     parser.add_argument('--group', type=str,
@@ -210,7 +217,7 @@ def main():
             match_odds = {}
         else:
             print(f"  Loaded {len(match_odds)} matches from odds_cache.json (fetched {fetched_at}).")
-    elif args.mode in ('normal', 'all'):
+    elif args.mode == 'normal':
         print("Fetching odds from The Odds API...")
         try:
             match_odds, credits = fetch_odds()
@@ -247,23 +254,21 @@ def main():
         print("Loading cached results...")
         match_results = _load_results_cache()
         print(f"  Loaded {len(match_results)} result(s) from results_cache.json.")
+        live_scores = {}
     else:
         print("Fetching completed match results...")
-        match_results = fetch_results()
+        match_results, live_scores = fetch_results()
 
     # --- Fetch Betfair ---
-    if args.mode in ('live', 'all'):
-        print("Fetching Betfair markets...")
-        betfair_data = fetch_betfair()
-    elif args.mode == 'betfair-group':
+    if args.mode == 'betfair-group':
         if not args.group:
             print("  Error: --group is required for betfair-group mode")
             sys.exit(1)
         print(f"Fetching Betfair markets for Group {args.group}...")
         betfair_data = fetch_betfair(groups_filter=[args.group.upper()])
-    else:  # normal, cached — fetch winner/qualify only (no match odds)
-        print("Fetching Betfair winner/qualify markets...")
-        betfair_data = fetch_betfair(fetch_match_odds=False)
+    else:
+        print("Fetching Betfair markets...")
+        betfair_data = fetch_betfair()
 
     # --- Assemble match probabilities ---
     match_probs = {**match_odds, **match_results}
@@ -272,7 +277,7 @@ def main():
 
     # --- Apply Betfair overrides ---
     inplay_matches = get_inplay_matches(betfair_data)
-    if args.mode in ('live', 'all'):
+    if inplay_matches:
         for (home, away) in inplay_matches:
             key = f"{home}|{away}"
             if key in betfair_data["match_odds"]:
@@ -281,7 +286,8 @@ def main():
                     ph = 1 / bf["home"]; pd = 1 / bf["draw"]; pa = 1 / bf["away"]
                     total = ph + pd + pa
                     match_probs[(home, away)] = (ph / total, pd / total, pa / total)
-    elif args.mode == 'betfair-group':
+                    print(f"  Betfair inplay override: {home} vs {away}")
+    if args.mode == 'betfair-group':
         for home, away in GROUP_MATCHES.get(args.group.upper(), []):
             if (home, away) in match_results or (away, home) in match_results:
                 continue
@@ -349,7 +355,7 @@ def main():
         print("  All checks within tolerance. ✓")
 
     print("\n--- JSON export ---")
-    write_json(all_sim_results, adv_probs, match_odds, match_results, betfair_data, inplay_matches)
+    write_json(all_sim_results, adv_probs, match_probs, match_results, betfair_data, inplay_matches, live_scores)
 
 
 if __name__ == '__main__':

@@ -11,6 +11,8 @@ function dn(name) {
 let appData     = null;
 let displayMode = 'odds'; // 'prob' | 'odds'
 let flagT = 20;
+let flagSort  = { col: 'pct', dir: -1 }; // dir: -1=desc, 1=asc
+let flagLimit = 10;
 const pairsOpen = new Set(); // group names whose pair panel is expanded
 
 // --- formatters ---
@@ -33,6 +35,17 @@ function fmtDate(isoStr) {
   return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
 }
 
+function liveMinute(dateStr) {
+  if (!dateStr) return null;
+  const start = new Date(dateStr).getTime();
+  if (isNaN(start)) return null;
+  const elapsed = Math.floor((Date.now() - start) / 60000);
+  if (elapsed <= 0) return null;
+  if (elapsed <= 48) return Math.min(elapsed, 45);
+  if (elapsed <= 63) return 45;        // half-time window
+  return Math.min(elapsed - 15, 90);  // second half, subtract HT break
+}
+
 function cellStyle(prob, pos) {
   const alpha = (prob * 0.75 + 0.04).toFixed(2);
   return `background:hsla(${HUE[pos]},65%,52%,${alpha})`;
@@ -44,6 +57,124 @@ function advStyle(prob) {
 }
 
 // --- flagging ---
+
+function calcPct(sourceOdds, prob) {
+  if (!sourceOdds || !prob || prob <= 0) return null;
+  return (sourceOdds - 1 / prob) / (1 / prob);
+}
+
+function collectFlags() {
+  if (!appData) return [];
+  const items = [];
+
+  for (const [groupName, group] of Object.entries(appData.groups)) {
+    for (const team of group.teams) {
+      const push = (type, prob, source, sourceOdds) => {
+        const pct = calcPct(sourceOdds, prob);
+        if (pct != null && pct >= flagT / 100)
+          items.push({ group: groupName, type, label: dn(team.name), prob, source, sourceOdds, pct });
+      };
+      push('Winner',   team.probs[0],  'BF', team.bf_group_winner_odds);
+      push('Winner',   team.probs[0],  'UB', team.ub_group_winner_odds);
+      push('Advances', team.adv_prob,  'BF', team.bf_to_qualify_odds);
+      push('4th',      team.probs[3],  'UB', team.ub_fourth_place_odds);
+    }
+    for (const pair of (group.pairs || [])) {
+      const pct = calcPct(pair.ub_odds, pair.prob);
+      if (pct != null && pct >= flagT / 100)
+        items.push({
+          group: groupName, type: '1st/2nd',
+          label: `${dn(pair.first)} / ${dn(pair.second)}`,
+          prob: pair.prob, source: 'UB', sourceOdds: pair.ub_odds, pct,
+        });
+    }
+  }
+
+  items.sort((a, b) => b.pct - a.pct);
+  return items;
+}
+
+const FLAG_COLS = [
+  { key: 'group',      label: 'Grp',        num: false },
+  { key: 'type',       label: 'Type',       num: false },
+  { key: 'label',      label: 'Team(s)',    num: false },
+  { key: 'prob',       label: 'Our odds',   num: true  },
+  { key: 'source',     label: 'Src',        num: true  },
+  { key: 'sourceOdds', label: 'Their odds', num: true  },
+  { key: 'pct',        label: 'Edge',       num: true  },
+];
+
+function sortedFlags(items) {
+  const { col, dir } = flagSort;
+  return [...items].sort((a, b) => {
+    const av = a[col], bv = b[col];
+    return typeof av === 'string' ? dir * av.localeCompare(bv) : dir * (av - bv);
+  });
+}
+
+function renderFlags() {
+  const el = document.getElementById('flags-section');
+  if (!el) return;
+
+  const all    = sortedFlags(collectFlags());
+  const total  = all.length;
+  if (!total) { el.innerHTML = ''; return; }
+
+  const shown = all.slice(0, flagLimit);
+
+  const isPct = displayMode === 'prob';
+  const ths = FLAG_COLS.map(c => {
+    let label = c.label;
+    if (isPct && c.key === 'prob')       label = 'Our %';
+    if (isPct && c.key === 'sourceOdds') label = 'Their %';
+    const active = flagSort.col === c.key;
+    const arrow  = active ? (flagSort.dir === -1 ? ' ▾' : ' ▴') : '';
+    const cls    = 'sortable' + (c.num ? ' num' : '');
+    return `<th class="${cls}" data-col="${c.key}">${label}${arrow}</th>`;
+  }).join('');
+
+  const rows = shown.map(item => `
+    <tr>
+      <td>${item.group}</td>
+      <td>${item.type}</td>
+      <td>${item.label}</td>
+      <td class="num">${fmt(item.prob)}</td>
+      <td class="num src-col">${item.source}</td>
+      <td class="num">${fmtBf(item.sourceOdds)}</td>
+      <td class="num flag-edge">+${(item.pct * 100).toFixed(0)}%</td>
+    </tr>`).join('');
+
+  const remaining = total - flagLimit;
+  const moreBtn = remaining > 0
+    ? `<button class="flags-more-btn" onclick="showMoreFlags()">Show ${Math.min(remaining, 10)} more (${remaining} remaining)</button>`
+    : '';
+
+  el.innerHTML = `
+    <div class="flags-wrap">
+      <div class="flags-card">
+        <h2>Value flags (${total})</h2>
+        <table class="flags-table">
+          <thead><tr>${ths}</tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+        ${moreBtn}
+      </div>
+    </div>`;
+
+  el.querySelectorAll('th[data-col]').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.col;
+      flagSort.dir = flagSort.col === col ? flagSort.dir * -1 : -1;
+      flagSort.col = col;
+      renderFlags();
+    });
+  });
+}
+
+function showMoreFlags() {
+  flagLimit += 10;
+  renderFlags();
+}
 
 function flagLevel(bf_odds, our_prob) {
   if (!bf_odds || !our_prob || our_prob <= 0) return null;
@@ -162,9 +293,20 @@ function renderGroup(name, group) {
 
   // --- match list ---
   const matchItems = group.matches.map(m => {
-    const date     = `<span class="match-date">${fmtDate(m.date)}</span>`;
-    const teams    = `<span class="match-teams">${dn(m.home)} – ${dn(m.away)}</span>`;
-    const liveBadge = m.inplay ? '<span class="live-badge">🔴 LIVE</span>' : '';
+    const date = `<span class="match-date">${fmtDate(m.date)}</span>`;
+
+    let liveBadge = '';
+    if (m.inplay) {
+      const min = liveMinute(m.date);
+      const minStr = min != null ? ` ${min}'` : '';
+      const scoreStr = (m.score_home != null && m.score_away != null)
+        ? ` ${m.score_home}–${m.score_away}` : '';
+      liveBadge = `<span class="live-badge">🔴 LIVE${minStr}${scoreStr}</span>`;
+    }
+
+    // Live badge sits inside the teams span so the 3-column grid stays intact
+    const teams = `<span class="match-teams">${dn(m.home)} – ${dn(m.away)}${liveBadge}</span>`;
+
     if (m.result) {
       let label;
       if (m.result === 'draw') {
@@ -173,9 +315,9 @@ function renderGroup(name, group) {
         const winner = dn(m.result === 'home' ? m.home : m.away);
         label = `<strong>${winner}</strong> win`;
       }
-      return `<li>${date}${teams}<span class="match-ft">FT: ${label}</span>${liveBadge}</li>`;
+      return `<li>${date}${teams}<span class="match-ft">FT: ${label}</span></li>`;
     }
-    return `<li>${date}${teams}<span class="match-odds">${fmtMatchLine(m)}</span>${liveBadge}</li>`;
+    return `<li>${date}${teams}<span class="match-odds">${fmtMatchLine(m)}</span></li>`;
   }).join('');
 
   // --- pairs panel (conditionally rendered) ---
@@ -229,6 +371,7 @@ function renderGrid() {
       .join('') +
     '</div>';
   applyFlags();
+  renderFlags();
 }
 
 function togglePairs(name) {
@@ -271,7 +414,9 @@ async function init() {
     btn.insertAdjacentElement('afterend', controls);
 
     document.getElementById('flagT').addEventListener('input', e => {
-      flagT = parseFloat(e.target.value) || 0; renderGrid();
+      flagT = parseFloat(e.target.value) || 0;
+      flagLimit = 10;
+      renderGrid();
     });
 
     renderGrid();

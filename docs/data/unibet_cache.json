@@ -1,11 +1,11 @@
 {
-  "fetched": "2026-06-11T21:16:55",
+  "fetched": "2026-06-11T23:13:06",
   "group_winner": {
     "A": {
-      "Mexico": 1.72,
-      "South Korea": 4.25,
-      "Czechia": 4.5,
-      "South Africa": 13.0
+      "Mexico": 1.6,
+      "South Korea": 4.5,
+      "Czechia": 4.75,
+      "South Africa": 21.0
     },
     "B": {
       "Switzerland": 1.72,
@@ -75,12 +75,6 @@
     }
   },
   "fourth_place": {
-    "A": {
-      "South Africa": 1.8,
-      "South Korea": 4.0,
-      "Czechia": 5.0,
-      "Mexico": 10.0
-    },
     "B": {
       "Qatar": 1.4,
       "Bosnia-Herzegovina": 4.0,
@@ -88,8 +82,8 @@
       "Switzerland": 16.0
     },
     "C": {
-      "Haiti": 1.05,
-      "Scotland": 7.0,
+      "Haiti": 1.09,
+      "Scotland": 6.0,
       "Morocco": 21.0,
       "Brazil": 51.0
     },
@@ -149,20 +143,6 @@
     }
   },
   "pairs": {
-    "A": {
-      "Mexico|Czechia": 4.0,
-      "Mexico|South Korea": 4.5,
-      "Czechia|Mexico": 5.5,
-      "South Korea|Mexico": 9.0,
-      "Mexico|South Africa": 9.0,
-      "Czechia|South Korea": 10.0,
-      "South Korea|Czechia": 12.0,
-      "Czechia|South Africa": 15.0,
-      "South Africa|Mexico": 21.0,
-      "South Korea|South Africa": 26.0,
-      "South Africa|Czechia": 29.0,
-      "South Africa|South Korea": 41.0
-    },
     "B": {
       "Switzerland|Canada": 3.0,
       "Switzerland|Bosnia-Herzegovina": 3.75,

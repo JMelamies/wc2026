@@ -32,13 +32,15 @@ def _save_cache(cache):
 
 def fetch_results():
     """
-    Returns dict: {(home_team, away_team): (p_home, p_draw, p_away)}
-    for completed matches, with deterministic probabilities (one value is 1.0, rest 0.0).
+    Returns (completed, live_scores):
+    - completed:   {(home, away): (p_home, p_draw, p_away)}  certainty values for finished matches
+    - live_scores: {(home, away): (score_home, score_away)}  current score for in-progress matches
 
-    Merges fresh API data (last 3 days) into results_cache.json so matches
+    Merges fresh API data (last 3 days) into results_cache.json so completed matches
     older than the API window are not lost between runs.
     """
-    cache = _load_cache()  # keyed as "HomeTeam|AwayTeam" → 'home'/'draw'/'away'
+    cache = _load_cache()  # keyed as "HomeTeam|AwayTeam" -> 'home'/'draw'/'away'
+    live_scores = {}
 
     try:
         params = {'apiKey': ODDS_API_KEY, 'daysFrom': 3}
@@ -48,33 +50,37 @@ def fetch_results():
 
         new_count = 0
         for event in events:
-            if not event.get('completed'):
-                continue
-
             raw_home = event['home_team']
             raw_away = event['away_team']
             home = _normalize(raw_home)
             away = _normalize(raw_away)
+            scores_data = event.get('scores') or []
+            scores = {s['name']: int(s['score']) for s in scores_data}
 
-            scores = {s['name']: int(s['score']) for s in (event.get('scores') or [])}
-            hs = scores.get(raw_home, 0)
-            as_ = scores.get(raw_away, 0)
-
-            outcome = 'home' if hs > as_ else ('draw' if hs == as_ else 'away')
-            key = f"{home}|{away}"
-
-            if cache.get(key) != outcome:
-                cache[key] = outcome
-                new_count += 1
+            if event.get('completed'):
+                hs  = scores.get(raw_home, 0)
+                as_ = scores.get(raw_away, 0)
+                outcome = 'home' if hs > as_ else ('draw' if hs == as_ else 'away')
+                key = f"{home}|{away}"
+                if cache.get(key) != outcome:
+                    cache[key] = outcome
+                    new_count += 1
+            elif scores_data:
+                sh = scores.get(raw_home)
+                sa = scores.get(raw_away)
+                if sh is not None and sa is not None:
+                    live_scores[(home, away)] = (sh, sa)
 
         _save_cache(cache)
+        live_str = f", {len(live_scores)} live" if live_scores else ""
         print(f"  Scores API: {new_count} new result(s) cached "
-              f"({len(cache)} total in results_cache.json).")
+              f"({len(cache)} total in results_cache.json{live_str}).")
 
     except Exception as exc:
         print(f"  Warning: could not fetch scores ({exc}). Using cached results only.")
 
-    return {
+    completed = {
         tuple(key.split('|', 1)): OUTCOME_PROBS[outcome]
         for key, outcome in cache.items()
     }
+    return completed, live_scores
