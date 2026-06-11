@@ -153,10 +153,12 @@ function renderFlags() {
     <div class="flags-wrap">
       <div class="flags-card">
         <h2>Value flags (${total})</h2>
-        <table class="flags-table">
-          <thead><tr>${ths}</tr></thead>
-          <tbody>${rows}</tbody>
-        </table>
+        <div class="flags-table-wrap">
+          <table class="flags-table">
+            <thead><tr>${ths}</tr></thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </div>
         ${moreBtn}
       </div>
     </div>`;
