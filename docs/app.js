@@ -298,7 +298,7 @@ function renderGroup(name, group) {
     const date = `<span class="match-date">${fmtDate(m.date)}</span>`;
 
     let liveBadge = '';
-    if (m.inplay) {
+    if (m.inplay && !m.result) {
       const min = liveMinute(m.date);
       const minStr = min != null ? ` ${min}'` : '';
       const scoreStr = (m.score_home != null && m.score_away != null)
