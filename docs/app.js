@@ -388,38 +388,62 @@ function toggleMode() {
   renderGrid();
 }
 
-// --- init ---
+// --- init / refresh ---
+
+async function fetchData() {
+  const resp = await fetch('data/group_rankings.json?t=' + Date.now(), { cache: 'no-store' });
+  if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
+  return resp.json();
+}
+
+async function refreshData() {
+  const btn = document.getElementById('refresh-btn');
+  if (btn) { btn.textContent = '↻ Loading…'; btn.disabled = true; }
+  try {
+    appData = await fetchData();
+    const genEl = document.getElementById('generated');
+    if (genEl) genEl.textContent =
+      'Based on bookmaker odds · Updated ' + appData.generated.replace('T', ' ');
+    flagLimit = 10;
+    renderGrid();
+  } catch (err) {
+    alert('Refresh failed: ' + err.message);
+  } finally {
+    if (btn) { btn.textContent = '↻ Refresh'; btn.disabled = false; }
+  }
+}
 
 async function init() {
   const statusEl = document.getElementById('status');
   const genEl    = document.getElementById('generated');
 
   try {
-    const resp = await fetch('data/group_rankings.json');
-    if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-    appData = await resp.json();
+    appData = await fetchData();
 
     genEl.textContent =
       'Based on bookmaker odds · Updated ' + appData.generated.replace('T', ' ');
 
-    const btn = document.createElement('button');
-    btn.id        = 'toggle-btn';
-    btn.className = 'toggle-btn';
-    btn.textContent = 'Show as %';
-    btn.onclick   = toggleMode;
-    genEl.insertAdjacentElement('afterend', btn);
+    const toggleBtn = document.createElement('button');
+    toggleBtn.id        = 'toggle-btn';
+    toggleBtn.className = 'toggle-btn';
+    toggleBtn.textContent = 'Show as %';
+    toggleBtn.onclick   = toggleMode;
+    genEl.insertAdjacentElement('afterend', toggleBtn);
 
     const controls = document.createElement('div');
     controls.className = 'threshold-controls';
     controls.innerHTML =
-      'Flag threshold: <input type="number" id="flagT" value="20" min="0" max="100"> %';
-    btn.insertAdjacentElement('afterend', controls);
+      'Flag threshold: <input type="number" id="flagT" value="20" min="0" max="100"> %' +
+      ' <button id="refresh-btn" class="refresh-btn">↻ Refresh</button>';
+    toggleBtn.insertAdjacentElement('afterend', controls);
 
     document.getElementById('flagT').addEventListener('input', e => {
       flagT = parseFloat(e.target.value) || 0;
       flagLimit = 10;
       renderGrid();
     });
+
+    document.getElementById('refresh-btn').addEventListener('click', refreshData);
 
     renderGrid();
   } catch (err) {

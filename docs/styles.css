@@ -292,6 +292,21 @@ tr:not(:last-child) td { border-bottom: 1px solid #f4f4f4; }
 }
 .threshold-controls input { width: 52px; margin: 0 4px; padding: 2px 4px; }
 
+.refresh-btn {
+  margin-left: 12px;
+  padding: 2px 10px;
+  font-size: 0.82rem;
+  font-family: inherit;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  cursor: pointer;
+  color: #444;
+  transition: background 0.15s, border-color 0.15s;
+}
+.refresh-btn:hover   { background: #f0f2f5; border-color: #aaa; }
+.refresh-btn:disabled { opacity: 0.5; cursor: default; }
+
 .toggle-btn {
   display: inline-block;
   margin-top: 12px;
