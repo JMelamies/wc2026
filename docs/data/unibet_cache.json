@@ -1,11 +1,11 @@
 {
-  "fetched": "2026-06-12T00:17:32",
+  "fetched": "2026-06-12T10:25:04",
   "group_winner": {
     "A": {
-      "Mexico": 1.45,
-      "South Korea": 4.75,
-      "Czechia": 5.0,
-      "South Africa": 81.0
+      "Mexico": 1.5,
+      "South Korea": 3.0,
+      "Czechia": 13.0,
+      "South Africa": 126.0
     },
     "B": {
       "Switzerland": 1.72,
