@@ -1,5 +1,5 @@
 {
-  "fetched": "2026-06-13T11:39:50",
+  "fetched": "2026-06-14T00:11:59",
   "group_winner": {
     "A": {
       "Mexico": 1.5,
@@ -8,10 +8,10 @@
       "South Africa": 126.0
     },
     "B": {
-      "Switzerland": 1.64,
-      "Canada": 3.2,
+      "Switzerland": 2.0,
+      "Canada": 2.75,
       "Bosnia-Herzegovina": 5.5,
-      "Qatar": 34.0
+      "Qatar": 31.0
     },
     "C": {
       "Brazil": 1.25,
@@ -75,18 +75,6 @@
     }
   },
   "fourth_place": {
-    "B": {
-      "Qatar": 1.3,
-      "Bosnia-Herzegovina": 5.0,
-      "Canada": 10.0,
-      "Switzerland": 21.0
-    },
-    "C": {
-      "Haiti": 1.09,
-      "Scotland": 6.0,
-      "Morocco": 21.0,
-      "Brazil": 51.0
-    },
     "D": {
       "Australia": 2.07,
       "Paraguay": 2.25,
@@ -143,34 +131,6 @@
     }
   },
   "pairs": {
-    "B": {
-      "Switzerland|Canada": 2.75,
-      "Switzerland|Bosnia-Herzegovina": 4.0,
-      "Canada|Switzerland": 4.75,
-      "Canada|Bosnia-Herzegovina": 9.25,
-      "Bosnia-Herzegovina|Switzerland": 10.0,
-      "Bosnia-Herzegovina|Canada": 13.0,
-      "Switzerland|Qatar": 15.0,
-      "Canada|Qatar": 41.0,
-      "Qatar|Switzerland": 61.0,
-      "Qatar|Canada": 81.0,
-      "Bosnia-Herzegovina|Qatar": 101.0,
-      "Qatar|Bosnia-Herzegovina": 136.0
-    },
-    "C": {
-      "Brazil|Morocco": 2.1,
-      "Brazil|Scotland": 2.25,
-      "Morocco|Brazil": 8.0,
-      "Brazil|Haiti": 13.0,
-      "Scotland|Brazil": 15.0,
-      "Morocco|Scotland": 34.0,
-      "Scotland|Morocco": 67.0,
-      "Haiti|Brazil": 126.0,
-      "Morocco|Haiti": 201.0,
-      "Haiti|Morocco": 251.0,
-      "Scotland|Haiti": 251.0,
-      "Haiti|Scotland": 501.0
-    },
     "D": {
       "United States|Türkiye": 2.75,
       "Türkiye|United States": 3.5,
