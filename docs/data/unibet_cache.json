@@ -1,5 +1,5 @@
 {
-  "fetched": "2026-06-14T00:11:59",
+  "fetched": "2026-06-15T11:00:47",
   "group_winner": {
     "A": {
       "Mexico": 1.5,
@@ -14,28 +14,28 @@
       "Qatar": 31.0
     },
     "C": {
-      "Brazil": 1.25,
-      "Morocco": 4.5,
-      "Scotland": 13.0,
-      "Haiti": 101.0
+      "Brazil": 1.5,
+      "Morocco": 3.3,
+      "Scotland": 6.5,
+      "Haiti": 176.0
     },
     "D": {
-      "United States": 1.57,
-      "Türkiye": 2.87,
-      "Australia": 12.0,
-      "Paraguay": 24.0
+      "United States": 1.4,
+      "Australia": 4.5,
+      "Türkiye": 7.0,
+      "Paraguay": 29.0
     },
     "E": {
-      "Germany": 1.29,
-      "Ecuador": 4.5,
-      "Ivory Coast": 7.5,
-      "Curaçao": 101.0
+      "Germany": 1.28,
+      "Ivory Coast": 3.9,
+      "Ecuador": 15.0,
+      "Curaçao": 401.0
     },
     "F": {
-      "Netherlands": 1.72,
-      "Japan": 3.4,
-      "Sweden": 6.5,
-      "Tunisia": 8.0
+      "Netherlands": 2.2,
+      "Japan": 3.15,
+      "Sweden": 3.15,
+      "Tunisia": 51.0
     },
     "G": {
       "Belgium": 1.35,
@@ -75,23 +75,29 @@
     }
   },
   "fourth_place": {
+    "A": {
+      "South Africa": 1.33,
+      "Czechia": 3.5,
+      "South Korea": 51.0,
+      "Mexico": 151.0
+    },
+    "B": {
+      "Qatar": 1.5,
+      "Bosnia-Herzegovina": 3.75,
+      "Canada": 9.0,
+      "Switzerland": 15.0
+    },
+    "C": {
+      "Haiti": 1.02,
+      "Morocco": 21.0,
+      "Scotland": 26.0,
+      "Brazil": 51.0
+    },
     "D": {
-      "Australia": 2.07,
-      "Paraguay": 2.25,
-      "Türkiye": 7.0,
-      "United States": 27.0
-    },
-    "E": {
-      "Curaçao": 1.06,
-      "Ivory Coast": 11.0,
-      "Ecuador": 21.0,
-      "Germany": 101.0
-    },
-    "F": {
-      "Tunisia": 1.83,
-      "Sweden": 4.0,
-      "Japan": 4.5,
-      "Netherlands": 10.0
+      "Paraguay": 1.45,
+      "Türkiye": 3.0,
+      "Australia": 15.0,
+      "United States": 81.0
     },
     "G": {
       "New Zealand": 1.4,
@@ -131,48 +137,6 @@
     }
   },
   "pairs": {
-    "D": {
-      "United States|Türkiye": 2.75,
-      "Türkiye|United States": 3.5,
-      "United States|Paraguay": 5.0,
-      "United States|Australia": 7.25,
-      "Türkiye|Australia": 14.0,
-      "Australia|United States": 16.0,
-      "Australia|Türkiye": 26.0,
-      "Paraguay|Türkiye": 41.0,
-      "Paraguay|United States": 61.0,
-      "Türkiye|Paraguay": 76.0,
-      "Paraguay|Australia": 91.0,
-      "Australia|Paraguay": 101.0
-    },
-    "E": {
-      "Germany|Ecuador": 2.1,
-      "Germany|Ivory Coast": 2.75,
-      "Ecuador|Germany": 6.0,
-      "Ivory Coast|Germany": 10.0,
-      "Ecuador|Ivory Coast": 21.0,
-      "Germany|Curaçao": 26.0,
-      "Ivory Coast|Ecuador": 41.0,
-      "Ecuador|Curaçao": 101.0,
-      "Curaçao|Germany": 151.0,
-      "Ivory Coast|Curaçao": 151.0,
-      "Curaçao|Ecuador": 501.0,
-      "Curaçao|Ivory Coast": 751.0
-    },
-    "F": {
-      "Netherlands|Japan": 3.75,
-      "Netherlands|Sweden": 4.5,
-      "Japan|Netherlands": 6.0,
-      "Sweden|Netherlands": 7.0,
-      "Netherlands|Tunisia": 10.0,
-      "Japan|Sweden": 10.0,
-      "Sweden|Japan": 10.0,
-      "Tunisia|Netherlands": 23.0,
-      "Japan|Tunisia": 29.0,
-      "Sweden|Tunisia": 34.0,
-      "Tunisia|Japan": 51.0,
-      "Tunisia|Sweden": 101.0
-    },
     "G": {
       "Belgium|Egypt": 2.5,
       "Belgium|Iran": 3.0,
