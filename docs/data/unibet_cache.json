@@ -1,5 +1,5 @@
 {
-  "fetched": "2026-06-15T11:00:47",
+  "fetched": "2026-06-16T10:52:30",
   "group_winner": {
     "A": {
       "Mexico": 1.5,
@@ -38,16 +38,16 @@
       "Tunisia": 51.0
     },
     "G": {
-      "Belgium": 1.35,
-      "Egypt": 5.5,
+      "Belgium": 1.52,
+      "Egypt": 3.9,
       "Iran": 7.0,
-      "New Zealand": 26.0
+      "New Zealand": 19.0
     },
     "H": {
-      "Spain": 1.2,
-      "Uruguay": 5.0,
-      "Saudi Arabia": 17.0,
-      "Cape Verde": 51.0
+      "Spain": 1.27,
+      "Uruguay": 4.0,
+      "Cape Verde": 26.0,
+      "Saudi Arabia": 31.0
     },
     "I": {
       "France": 1.4,
@@ -99,18 +99,6 @@
       "Australia": 15.0,
       "United States": 81.0
     },
-    "G": {
-      "New Zealand": 1.4,
-      "Iran": 4.25,
-      "Egypt": 7.0,
-      "Belgium": 41.0
-    },
-    "H": {
-      "Cape Verde": 1.57,
-      "Saudi Arabia": 2.25,
-      "Uruguay": 17.0,
-      "Spain": 101.0
-    },
     "I": {
       "Iraq": 1.28,
       "Senegal": 4.5,
@@ -137,34 +125,6 @@
     }
   },
   "pairs": {
-    "G": {
-      "Belgium|Egypt": 2.5,
-      "Belgium|Iran": 3.0,
-      "Belgium|New Zealand": 8.0,
-      "Egypt|Belgium": 8.0,
-      "Iran|Belgium": 11.0,
-      "Egypt|Iran": 21.0,
-      "Iran|Egypt": 26.0,
-      "New Zealand|Belgium": 34.0,
-      "Egypt|New Zealand": 41.0,
-      "Iran|New Zealand": 51.0,
-      "New Zealand|Egypt": 101.0,
-      "New Zealand|Iran": 201.0
-    },
-    "H": {
-      "Spain|Uruguay": 1.75,
-      "Spain|Saudi Arabia": 4.25,
-      "Uruguay|Spain": 6.0,
-      "Spain|Cape Verde": 8.0,
-      "Saudi Arabia|Spain": 21.0,
-      "Uruguay|Saudi Arabia": 34.0,
-      "Saudi Arabia|Uruguay": 51.0,
-      "Cape Verde|Spain": 67.0,
-      "Uruguay|Cape Verde": 81.0,
-      "Cape Verde|Uruguay": 151.0,
-      "Cape Verde|Saudi Arabia": 251.0,
-      "Saudi Arabia|Cape Verde": 251.0
-    },
     "I": {
       "France|Norway": 1.8,
       "France|Senegal": 3.75,
