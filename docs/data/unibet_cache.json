@@ -1,5 +1,5 @@
 {
-  "fetched": "2026-06-16T10:52:30",
+  "fetched": "2026-06-17T10:35:21",
   "group_winner": {
     "A": {
       "Mexico": 1.5,
@@ -50,16 +50,16 @@
       "Saudi Arabia": 31.0
     },
     "I": {
-      "France": 1.4,
-      "Norway": 4.0,
-      "Senegal": 8.0,
-      "Iraq": 51.0
+      "France": 1.22,
+      "Norway": 3.6,
+      "Senegal": 46.0,
+      "Iraq": 201.0
     },
     "J": {
-      "Argentina": 1.33,
-      "Austria": 5.0,
-      "Algeria": 6.5,
-      "Jordan": 41.0
+      "Argentina": 1.12,
+      "Austria": 5.5,
+      "Algeria": 41.0,
+      "Jordan": 76.0
     },
     "K": {
       "Portugal": 1.44,
@@ -99,18 +99,6 @@
       "Australia": 15.0,
       "United States": 81.0
     },
-    "I": {
-      "Iraq": 1.28,
-      "Senegal": 4.5,
-      "Norway": 11.0,
-      "France": 51.0
-    },
-    "J": {
-      "Jordan": 1.25,
-      "Algeria": 6.0,
-      "Austria": 8.0,
-      "Argentina": 51.0
-    },
     "K": {
       "Uzbekistan": 1.75,
       "DR Congo": 2.4,
@@ -125,34 +113,6 @@
     }
   },
   "pairs": {
-    "I": {
-      "France|Norway": 1.8,
-      "France|Senegal": 3.75,
-      "Norway|France": 5.0,
-      "Senegal|France": 15.0,
-      "France|Iraq": 17.0,
-      "Norway|Senegal": 19.0,
-      "Senegal|Norway": 29.0,
-      "Norway|Iraq": 51.0,
-      "Iraq|France": 151.0,
-      "Iraq|Norway": 201.0,
-      "Senegal|Iraq": 201.0,
-      "Iraq|Senegal": 251.0
-    },
-    "J": {
-      "Argentina|Austria": 2.1,
-      "Argentina|Algeria": 3.25,
-      "Austria|Argentina": 4.75,
-      "Algeria|Argentina": 13.0,
-      "Argentina|Jordan": 17.0,
-      "Austria|Algeria": 19.0,
-      "Algeria|Austria": 23.0,
-      "Austria|Jordan": 101.0,
-      "Jordan|Argentina": 151.0,
-      "Algeria|Jordan": 201.0,
-      "Jordan|Algeria": 251.0,
-      "Jordan|Austria": 251.0
-    },
     "K": {
       "Portugal|Colombia": 1.72,
       "Colombia|Portugal": 3.5,
